@@ -19,48 +19,46 @@ If using a browser-based generator, capture the generated key pair screen (redac
 ---
 
 ## Key Identification
-**Which file is the public key?**
-<!-- Example: public.key -->
+**Which file is the public key?**  
+- `public.key` (extracted from the private key using `openssl rsa -in private.key -pubout -out public.key`)
 
-**Which file is the private key?**
-<!-- Example: private.key -->
+**Which file is the private key?**  
+- `private.key` (generated using `openssl genrsa -out private.key 2048`)
 
 ---
 
 ## Key Properties
-Briefly describe:
-- What makes the public key safe to share
-- What makes the private key sensitive
+- **What makes the public key safe to share:**  
+  The public key can be shared because it cannot be used to impersonate you or decrypt messages without the private key
+
+- **What makes the private key sensitive:**  
+  The private key must remain secret because anyone with it can impersonate you, decrypt messages meant only for you, and break trust
 
 ---
 
 ## Security Scenario
-What would happen if someone obtained your private key?
+**What would happen if someone obtained your private key?**  
 
-Explain the risk in terms of:
-  - Identity
-  - Impersonation
-  - Trust
+If someone got your private key:  
+- They could pretend to be you (**identity**)
+- They could send messages or log in as you (**impersonation**)
+- Others could no longer trust your communications (**trust**)
 
 ---
 
 ## Observations
-Document three observations from this lab.
-
 ### Observation 1
-<!-- What did you notice about key generation? -->
+- Generating the private key was quick, and the public key can be easily derived
 
 ### Observation 2
-<!-- What did you notice about key size or format? -->
+- The key size (2048 bits) makes it secure
 
 ### Observation 3
-<!-- What did you notice about how the keys differ? -->
+- The private key is longer and sensitive, while the public key can be shared safely and is used only for verification or encryption
 
 ---
-
-## Reflection
-In 3–5 sentences, explain:
-
-Why must the private key remain secret in a PKI system?
+## Reflection 
+-**In 3–5 sentences, explain: Why must the private key remain secret in a PKI system?**
+The private key must remain secret in a PKI system because it proves your identity. If someone else has it, they could pretend to be you and break trust. The public key can be shared safely because it cannot be used to impersonate you. In PKI, your identity is tied to possession of the private key
 
 Focus on how identity is tied to possession of the private key.
