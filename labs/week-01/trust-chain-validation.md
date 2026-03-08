@@ -16,20 +16,21 @@ Embed the screenshot below:
 ## Website Information
 
 **Website inspected:**  
-<!-- Enter full URL -->
+https://www.reddit.com/
 
 ---
 
 ## Certificate Chain Breakdown
 
 **Leaf (Server) Certificate**  
-<!-- Enter Common Name or Subject -->
+
+Common Name (CN): *.reddit.com
 
 **Intermediate Certificate Authority**
-<!-- Enter Intermediate CA name -->
+DigiCert Global G2 TLS RSA SHA256 2020 CA1
 
 **Root Certificate Authority (Trust Anchor)**
-<!-- Enter Root CA name -->
+DigiCert Global Root G2
 
 ---
 
@@ -37,9 +38,10 @@ Embed the screenshot below:
 
 Is the Root CA marked as trusted by your system?
 
-<!-- Yes / No -->
+Yes
 
 If yes, explain where that trust comes from (OS/browser root store).
+ DigiCert Global Root G2 is located in the root store
 
 If no, explain what warning or behavior occurred.
 
@@ -50,13 +52,14 @@ If no, explain what warning or behavior occurred.
 Document three observations about the certificate.
 
 ### Observation 1
-<!-- What did you notice about the chain structure? -->
+Trust flows from the root certificate (trusted by the system) down through the intermediate CA to the server certificate which 
+allows the browser to authenticate
 
 ### Observation 2
-<!-- What did you notice about the Root CA? -->
+The Root and Intermediate are both issued by the same authority - DigiCert
 
 ### Observation 3
-<!-- What did you notice about how the browser determines trust? -->
+I observed that because the root CA is included in the browser’s trusted root certificate store, the browser accepts the entire chain as valid.
 
 ---
 
@@ -64,7 +67,14 @@ Document three observations about the certificate.
 
 In 3–5 sentences, explain:
 - Why the Root certificate is called a trust anchor
+  The root certificate is called a **trust anchor** because the operating system or browser already trusts it by default. It is stored in the system’s trusted certificate store and acts as the starting point for verifying other certificates
 - How validation walks the certificate chain
-- What would happen if the Root CA were not trusted
+  1. The browser checks that the server certificate was signed by the intermediate CA DigiCert Global G2 TLS RSA SHA256 2020 CA1
+  2. It then verifies that the intermediate certificate was signed by the root CA DigiCert Global Root G2.\
+  3. The browser accepts the entire certificate chain
+  4. The browser confirms the website is valid and secure
+
+2. - What would happen if the Root CA were not trusted
+  I would be advised that the connection is not private via the website browser
 
 Use your own words.
