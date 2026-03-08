@@ -57,8 +57,8 @@ If someone got your private key:
 - The private key is longer and sensitive, while the public key can be shared safely and is used only for verification or encryption
 
 ---
-## Reflection 
--**In 3–5 sentences, explain: Why must the private key remain secret in a PKI system?**
+## Reflection
+**In 3–5 sentences, explain: Why must the private key remain secret in a PKI system?**  
 The private key must remain secret in a PKI system because it proves your identity. If someone else has it, they could pretend to be you and break trust. The public key can be shared safely because it cannot be used to impersonate you. In PKI, your identity is tied to possession of the private key
 
 Focus on how identity is tied to possession of the private key.
