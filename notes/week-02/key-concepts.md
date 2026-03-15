@@ -37,5 +37,5 @@ In the real world, we do everything online, so we need a way to protect private 
 ## Mental Model
 **Identity + Trust + Verification**
 - **Encryption** keeps the secret.
-- **Hashing** makes sure it’s perfect.
+- **Hashing** enforces integrity
 - **Signatures** prove who it's from.
