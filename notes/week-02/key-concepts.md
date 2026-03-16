@@ -39,3 +39,17 @@ In the real world, we do everything online, so we need a way to protect private 
 - **Encryption** keeps the secret.
 - **Hashing** enforces integrity
 - **Signatures** prove who it's from.
+  
+## Part 3 — Observations
+
+### Why the encrypted file is unreadable
+The file looks like gibberish because the encryption algorithm scrambled all the original data. Without the right key to put the pieces back in order, it’s just a random mcharacters that doesn't make any sense to a human or a computer.
+
+### What would happen if the wrong password were used
+If you use the wrong password, the decryption will fail. The computer will try to unscramble the data using the wrong "math," which usually results in an error message saying the key is incorrect, or it just produces even more scrambled characters.
+
+### What security property symmetric encryption provides
+Symmetric encryption provides **Confidentiality**. This means it makes sure that only people with the secret key can read the information, keeping it private from everyone else.
+
+### Why TLS uses symmetric encryption for data transfer
+TLS uses symmetric encryption for the actual data transfer because it is way faster and more efficient than asymmetric encryption. Once the two computers agree on a secret key (using the slower asymmetric method), they switch to symmetric encryption so they can send large amounts of data with minimal latency 
