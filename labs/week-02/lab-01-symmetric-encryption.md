@@ -68,6 +68,7 @@ Example of what an embedded image looks like:
 ```markdown
 ![Certificate output showing SAN field](../../../assets/screenshots/san-field.png)
 ```
+<img width="586" height="396" alt="image" src="https://github.com/user-attachments/assets/1822fc78-30e1-416b-8e10-a58d97e6fffd" />
 
 ---
 
