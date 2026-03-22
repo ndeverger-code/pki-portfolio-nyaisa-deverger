@@ -47,27 +47,12 @@ Examples may include:
 
 If you include screenshots, store them in `assets/screenshots/` at the root of your repo and reference them here.
 
-**How to embed an image:**
-
-**Option A — Terminal / Local Editor**
-
-Save your screenshot to `assets/screenshots/` in your repo, then reference it using a relative path from your submission file:
-
-```markdown
-![Description of your screenshot](../../../assets/screenshots/your-filename.png)
-```
-
-> The `../../../` moves up three levels: `submissions/` → `week-03/` → `labs/` → repo root, then into `assets/screenshots/`.
+https://github.com/ndeverger-code/pki-portfolio-nyaisa-deverger/blob/main/assets/screenshots/week-02/Encrytion%20Using%20AES-256.png
 
 **Option B — GitHub Web (Easiest)**
 
 Open your `.md` file on GitHub, click the pencil icon to edit, then **drag and drop your image directly into the text editor**. GitHub will upload it automatically and insert the correct link for you.
 
-Example of what an embedded image looks like:
-
-```markdown
-![Certificate output showing SAN field](../../../assets/screenshots/san-field.png)
-```
 <img width="586" height="396" alt="image" src="https://github.com/user-attachments/assets/1822fc78-30e1-416b-8e10-a58d97e6fffd" />
 
 ---
