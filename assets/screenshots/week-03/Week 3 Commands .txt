@@ -1,0 +1,1387 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\nyasi> openssl s_client -connect google.com:443 -showcerts
+Connecting to 2607:f8b0:4002:c09::71
+CONNECTED(00000208)
+depth=2 C=US, O=Google Trust Services LLC, CN=GTS Root R4
+verify error:num=20:unable to get local issuer certificate
+verify return:1
+depth=1 C=US, O=Google Trust Services, CN=WE2
+verify return:1
+depth=0 CN=*.google.com
+verify return:1
+---
+Certificate chain
+ 0 s:CN=*.google.com
+   i:C=US, O=Google Trust Services, CN=WE2
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA256
+   v:NotBefore: Feb 23 18:19:56 2026 GMT; NotAfter: May 18 18:19:55 2026 GMT
+-----BEGIN CERTIFICATE-----
+MIINdDCCDRqgAwIBAgIRAKojAkKO9Dl+ELssMpMc/C4wCgYIKoZIzj0EAwIwOzEL
+MAkGA1UEBhMCVVMxHjAcBgNVBAoTFUdvb2dsZSBUcnVzdCBTZXJ2aWNlczEMMAoG
+A1UEAxMDV0UyMB4XDTI2MDIyMzE4MTk1NloXDTI2MDUxODE4MTk1NVowFzEVMBMG
+A1UEAwwMKi5nb29nbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExb7m
+Ah44jfj6UbfszAaxCD+G+HaijWd0n8Yd1rAsiCpdNg3MoE5Uv2Zw9XFGoU/DW8lD
+RdbmmQeJNNYqR8BlkKOCDCEwggwdMA4GA1UdDwEB/wQEAwIHgDATBgNVHSUEDDAK
+BggrBgEFBQcDATAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBThnyBKS7h5ox+oX6DV
+c4aeAJ+hIzAfBgNVHSMEGDAWgBR1vsR3ron2RDd9z7FoHx0a69w0WTBYBggrBgEF
+BQcBAQRMMEowIQYIKwYBBQUHMAGGFWh0dHA6Ly9vLnBraS5nb29nL3dlMjAlBggr
+BgEFBQcwAoYZaHR0cDovL2kucGtpLmdvb2cvd2UyLmNydDCCCfgGA1UdEQSCCe8w
+ggnrggwqLmdvb2dsZS5jb22CFiouYXBwZW5naW5lLmdvb2dsZS5jb22CCSouYmRu
+LmRldoIVKi5vcmlnaW4tdGVzdC5iZG4uZGV2ghIqLmNsb3VkLmdvb2dsZS5jb22C
+GCouY3Jvd2Rzb3VyY2UuZ29vZ2xlLmNvbYIYKi5kYXRhY29tcHV0ZS5nb29nbGUu
+Y29tggsqLmdvb2dsZS5jYYILKi5nb29nbGUuY2yCDiouZ29vZ2xlLmNvLmlugg4q
+Lmdvb2dsZS5jby5qcIIOKi5nb29nbGUuY28udWuCDyouZ29vZ2xlLmNvbS5hcoIP
+Ki5nb29nbGUuY29tLmF1gg8qLmdvb2dsZS5jb20uYnKCDyouZ29vZ2xlLmNvbS5j
+b4IPKi5nb29nbGUuY29tLm14gg8qLmdvb2dsZS5jb20udHKCDyouZ29vZ2xlLmNv
+bS52boILKi5nb29nbGUuZGWCCyouZ29vZ2xlLmVzggsqLmdvb2dsZS5mcoILKi5n
+b29nbGUuaHWCCyouZ29vZ2xlLml0ggsqLmdvb2dsZS5ubIILKi5nb29nbGUucGyC
+CyouZ29vZ2xlLnB0gg8qLmdvb2dsZWFwaXMuY26CDCouZ3N0YXRpYy5jboIQKi5n
+c3RhdGljLWNuLmNvbYIPZ29vZ2xlY25hcHBzLmNughEqLmdvb2dsZWNuYXBwcy5j
+boIRZ29vZ2xlYXBwcy1jbi5jb22CEyouZ29vZ2xlYXBwcy1jbi5jb22CDGdrZWNu
+YXBwcy5jboIOKi5na2VjbmFwcHMuY26CEmdvb2dsZWRvd25sb2Fkcy5jboIUKi5n
+b29nbGVkb3dubG9hZHMuY26CEHJlY2FwdGNoYS5uZXQuY26CEioucmVjYXB0Y2hh
+Lm5ldC5jboIQcmVjYXB0Y2hhLWNuLm5ldIISKi5yZWNhcHRjaGEtY24ubmV0ggt3
+aWRldmluZS5jboINKi53aWRldmluZS5jboIRYW1wcHJvamVjdC5vcmcuY26CEyou
+YW1wcHJvamVjdC5vcmcuY26CEWFtcHByb2plY3QubmV0LmNughMqLmFtcHByb2pl
+Y3QubmV0LmNughdnb29nbGUtYW5hbHl0aWNzLWNuLmNvbYIZKi5nb29nbGUtYW5h
+bHl0aWNzLWNuLmNvbYIXZ29vZ2xlYWRzZXJ2aWNlcy1jbi5jb22CGSouZ29vZ2xl
+YWRzZXJ2aWNlcy1jbi5jb22CEWdvb2dsZXZhZHMtY24uY29tghMqLmdvb2dsZXZh
+ZHMtY24uY29tghFnb29nbGVhcGlzLWNuLmNvbYITKi5nb29nbGVhcGlzLWNuLmNv
+bYIVZ29vZ2xlb3B0aW1pemUtY24uY29tghcqLmdvb2dsZW9wdGltaXplLWNuLmNv
+bYISZG91YmxlY2xpY2stY24ubmV0ghQqLmRvdWJsZWNsaWNrLWNuLm5ldIIYKi5m
+bHMuZG91YmxlY2xpY2stY24ubmV0ghYqLmcuZG91YmxlY2xpY2stY24ubmV0gg5k
+b3VibGVjbGljay5jboIQKi5kb3VibGVjbGljay5jboIUKi5mbHMuZG91YmxlY2xp
+Y2suY26CEiouZy5kb3VibGVjbGljay5jboIRZGFydHNlYXJjaC1jbi5uZXSCEyou
+ZGFydHNlYXJjaC1jbi5uZXSCHWdvb2dsZXRyYXZlbGFkc2VydmljZXMtY24uY29t
+gh8qLmdvb2dsZXRyYXZlbGFkc2VydmljZXMtY24uY29tghhnb29nbGV0YWdzZXJ2
+aWNlcy1jbi5jb22CGiouZ29vZ2xldGFnc2VydmljZXMtY24uY29tghdnb29nbGV0
+YWdtYW5hZ2VyLWNuLmNvbYIZKi5nb29nbGV0YWdtYW5hZ2VyLWNuLmNvbYIYZ29v
+Z2xlc3luZGljYXRpb24tY24uY29tghoqLmdvb2dsZXN5bmRpY2F0aW9uLWNuLmNv
+bYIkKi5zYWZlZnJhbWUuZ29vZ2xlc3luZGljYXRpb24tY24uY29tghZhcHAtbWVh
+c3VyZW1lbnQtY24uY29tghgqLmFwcC1tZWFzdXJlbWVudC1jbi5jb22CC2d2dDEt
+Y24uY29tgg0qLmd2dDEtY24uY29tggtndnQyLWNuLmNvbYINKi5ndnQyLWNuLmNv
+bYILMm1kbi1jbi5uZXSCDSouMm1kbi1jbi5uZXSCFGdvb2dsZWZsaWdodHMtY24u
+bmV0ghYqLmdvb2dsZWZsaWdodHMtY24ubmV0ggxhZG1vYi1jbi5jb22CDiouYWRt
+b2ItY24uY29tghkqLmdlbWluaS5jbG91ZC5nb29nbGUuY29tghRnb29nbGVzYW5k
+Ym94LWNuLmNvbYIWKi5nb29nbGVzYW5kYm94LWNuLmNvbYIeKi5zYWZlbnVwLmdv
+b2dsZXNhbmRib3gtY24uY29tgg0qLmdzdGF0aWMuY29tghQqLm1ldHJpYy5nc3Rh
+dGljLmNvbYIKKi5ndnQxLmNvbYIRKi5nY3BjZG4uZ3Z0MS5jb22CCiouZ3Z0Mi5j
+b22CDiouZ2NwLmd2dDIuY29tghAqLnVybC5nb29nbGUuY29tghYqLnlvdXR1YmUt
+bm9jb29raWUuY29tggsqLnl0aW1nLmNvbYIKYWkuYW5kcm9pZIILYW5kcm9pZC5j
+b22CDSouYW5kcm9pZC5jb22CEyouZmxhc2guYW5kcm9pZC5jb22CBGcuY26CBiou
+Zy5jboIEZy5jb4IGKi5nLmNvggZnb28uZ2yCCnd3dy5nb28uZ2yCFGdvb2dsZS1h
+bmFseXRpY3MuY29tghYqLmdvb2dsZS1hbmFseXRpY3MuY29tggpnb29nbGUuY29t
+ghJnb29nbGVjb21tZXJjZS5jb22CFCouZ29vZ2xlY29tbWVyY2UuY29tgghnZ3Bo
+dC5jboIKKi5nZ3BodC5jboIKdXJjaGluLmNvbYIMKi51cmNoaW4uY29tggh5b3V0
+dS5iZYILeW91dHViZS5jb22CDSoueW91dHViZS5jb22CEW11c2ljLnlvdXR1YmUu
+Y29tghMqLm11c2ljLnlvdXR1YmUuY29tghR5b3V0dWJlZWR1Y2F0aW9uLmNvbYIW
+Ki55b3V0dWJlZWR1Y2F0aW9uLmNvbYIPeW91dHViZWtpZHMuY29tghEqLnlvdXR1
+YmVraWRzLmNvbYIFeXQuYmWCByoueXQuYmWCGmFuZHJvaWQuY2xpZW50cy5nb29n
+bGUuY29tghMqLmFuZHJvaWQuZ29vZ2xlLmNughIqLmNocm9tZS5nb29nbGUuY26C
+FiouZGV2ZWxvcGVycy5nb29nbGUuY26CFSouYWlzdHVkaW8uZ29vZ2xlLmNvbTAT
+BgNVHSAEDDAKMAgGBmeBDAECATA2BgNVHR8ELzAtMCugKaAnhiVodHRwOi8vYy5w
+a2kuZ29vZy93ZTIveUs1blBodEhLUXMuY3JsMIIBAwYKKwYBBAHWeQIEAgSB9ASB
+8QDvAHUAlpdkv1VYl633Q4doNwhCd+nwOtX2pPM2bkakPw/KqcYAAAGci/G/FQAA
+BAMARjBEAiBXOqLG3Zwee9I3cH+1TRTCUXAdghFQJGsi2+Q0TkvezAIgUUbW1Flg
+wz2+6sGKzmq8iAn9zbXa08KNcFsWQ6hhpIAAdgBJnJtp3h187Pw23s2HZKa4W68K
+h4AZ0VVS++nrKd34wwAAAZyL8b7sAAAEAwBHMEUCIEPT2kIhn6y9C4taRszYqpoF
+vQBQnbZxzctWhyhxMSgJAiEAnuuafbMoTVi/p/HTrJmqQcUpArZR6qr01AzPYsJT
+0eMwCgYIKoZIzj0EAwIDSAAwRQIgKdLCPsupE1B/VLXe6Wn0SkWedLyK/z+3FRAg
+ZJX6JIkCIQCNbrL/U+/sfir1IDpD0IlVtpu6dgo1B9yUcMp5hwzWSA==
+-----END CERTIFICATE-----
+ 1 s:C=US, O=Google Trust Services, CN=WE2
+   i:C=US, O=Google Trust Services LLC, CN=GTS Root R4
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA384
+   v:NotBefore: Dec 13 09:00:00 2023 GMT; NotAfter: Feb 20 14:00:00 2029 GMT
+-----BEGIN CERTIFICATE-----
+MIICnjCCAiWgAwIBAgIQf/Mta0CdFdWWWwWHOnxy4DAKBggqhkjOPQQDAzBHMQsw
+CQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEU
+MBIGA1UEAxMLR1RTIFJvb3QgUjQwHhcNMjMxMjEzMDkwMDAwWhcNMjkwMjIwMTQw
+MDAwWjA7MQswCQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNlcnZp
+Y2VzMQwwCgYDVQQDEwNXRTIwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ1fh/y
+FO2QfeGeKjRDhsHVlugncN+eBMupyoZ5CwhNRorCdKS72b/u/SPXOPNL71QX4b7n
+ylUlqAwwrC1dTqFRo4H+MIH7MA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggr
+BgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQU
+db7Ed66J9kQ3fc+xaB8dGuvcNFkwHwYDVR0jBBgwFoAUgEzW63T/STaj1dj8tT7F
+avCUHYwwNAYIKwYBBQUHAQEEKDAmMCQGCCsGAQUFBzAChhhodHRwOi8vaS5wa2ku
+Z29vZy9yNC5jcnQwKwYDVR0fBCQwIjAgoB6gHIYaaHR0cDovL2MucGtpLmdvb2cv
+ci9yNC5jcmwwEwYDVR0gBAwwCjAIBgZngQwBAgEwCgYIKoZIzj0EAwMDZwAwZAIw
+C724NlXINaPS2X05c9P394K4CdGBb+VkRdveqsAORRKPrJPoH2DsLn5ELCKUkeys
+AjAv3wyQdkwtaWHVT/2YmBiE2zTqmOybzYhi/9Jl5TNqmgztI0k4L1G/kdASosk4
+ONo=
+-----END CERTIFICATE-----
+ 2 s:C=US, O=Google Trust Services LLC, CN=GTS Root R4
+   i:C=BE, O=GlobalSign nv-sa, OU=Root CA, CN=GlobalSign Root CA
+   a:PKEY: EC, (secp384r1); sigalg: sha256WithRSAEncryption
+   v:NotBefore: Nov 15 03:43:21 2023 GMT; NotAfter: Jan 28 00:00:42 2028 GMT
+-----BEGIN CERTIFICATE-----
+MIIDejCCAmKgAwIBAgIQf+UwvzMTQ77dghYQST2KGzANBgkqhkiG9w0BAQsFADBX
+MQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEQMA4GA1UE
+CxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFsU2lnbiBSb290IENBMB4XDTIzMTEx
+NTAzNDMyMVoXDTI4MDEyODAwMDA0MlowRzELMAkGA1UEBhMCVVMxIjAgBgNVBAoT
+GUdvb2dsZSBUcnVzdCBTZXJ2aWNlcyBMTEMxFDASBgNVBAMTC0dUUyBSb290IFI0
+MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE83Rzp2iLYK5DuDXFgTB7S0md+8Fhzube
+Rr1r1WEYNa5A3XP3iZEwWus87oV8okB2O6nGuEfYKueSkWpz6bFyOZ8pn6KY019e
+WIZlD6GEZQbR3IvJx3PIjGov5cSr0R2Ko4H/MIH8MA4GA1UdDwEB/wQEAwIBhjAd
+BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+BgNVHQ4EFgQUgEzW63T/STaj1dj8tT7FavCUHYwwHwYDVR0jBBgwFoAUYHtmGkUN
+l8qJUC99BM00qP/8/UswNgYIKwYBBQUHAQEEKjAoMCYGCCsGAQUFBzAChhpodHRw
+Oi8vaS5wa2kuZ29vZy9nc3IxLmNydDAtBgNVHR8EJjAkMCKgIKAehhxodHRwOi8v
+Yy5wa2kuZ29vZy9yL2dzcjEuY3JsMBMGA1UdIAQMMAowCAYGZ4EMAQIBMA0GCSqG
+SIb3DQEBCwUAA4IBAQAYQrsPBtYDh5bjP2OBDwmkoWhIDDkic574y04tfzHpn+cJ
+odI2D4SseesQ6bDrarZ7C30ddLibZatoKiws3UL9xnELz4ct92vID24FfVbiI1hY
++SW6FoVHkNeWIP0GCbaM4C6uVdF5dTUsMVs/ZbzNnIdCp5Gxmx5ejvEau8otR/Cs
+kGN+hr/W5GvT1tMBjgWKZ1i4//emhA1JG1BbPzoLJQvyEotc03lXjTaCzv8mEbep
+8RqZ7a2CPsgRbuvTPBwcOMBBmuFeU88+FSBX6+7iP0il8b4Z0QFqIwwMHfs/L6K1
+vepuoxtGzi4CZ68zJpiq1UvSqTbFJjtbD4seiMHl
+-----END CERTIFICATE-----
+---
+Server certificate
+subject=CN=*.google.com
+issuer=C=US, O=Google Trust Services, CN=WE2
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ecdsa_secp256r1_sha256
+Negotiated TLS1.3 group: X25519MLKEM768
+---
+SSL handshake has read 6418 bytes and written 1623 bytes
+Verification error: unable to get local issuer certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+Server public key is 256 bit
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 20 (unable to get local issuer certificate)
+---
+783E0000:error:0A000126:SSL routines::unexpected eof while reading:ssl\record\rec_layer_s3.c:703:
+PS C:\Users\nyasi> pwd
+
+Path
+----
+C:\Users\nyasi
+
+
+PS C:\Users\nyasi> ls
+
+
+    Directory: C:\Users\nyasi
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---         2/28/2026  12:40 PM                Contacts
+d-r---         3/22/2026   2:27 PM                Downloads
+d-r---         2/28/2026  12:40 PM                Favorites
+d-----         3/14/2026   6:36 PM                labs
+d-r---         2/28/2026  12:40 PM                Links
+d-r---         2/28/2026  12:40 PM                Music
+dar--l         3/21/2026   7:39 PM                OneDrive
+d-r---         2/28/2026  12:40 PM                Saved Games
+d-r---         3/12/2026   1:49 PM                Searches
+d-r---         2/28/2026   2:43 PM                Videos
+-a----         3/14/2026   9:13 PM            134 .bashrc
+-a----         3/15/2026   6:33 PM          10979 .bash_history
+-a----         3/14/2026   9:27 PM             99 .bash_profile
+-a----          3/3/2026   6:35 PM            194 .gitconfig
+-a----         3/15/2026   6:59 PM             15 .minttyrc
+-a----         3/22/2026   2:17 PM         226168 cacert.pem
+-a----          3/3/2026   4:30 PM           1732 private.key
+-a----          3/3/2026   3:04 PM           1732 private_key.pem
+-a----          3/3/2026   4:31 PM            460 public.key
+
+
+PS C:\Users\nyasi> cd labs
+PS C:\Users\nyasi\labs> cd ls
+cd : Cannot find path 'C:\Users\nyasi\labs\ls' because it does not exist.
+At line:1 char:1
++ cd ls
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nyasi\labs\ls:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\nyasi\labs> ls
+
+
+    Directory: C:\Users\nyasi\labs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         3/14/2026   6:36 PM                02-week-02-cryptography-fundamentals
+
+
+PS C:\Users\nyasi\labs>
+PS C:\Users\nyasi\labs> cd ..
+PS C:\Users\nyasi> ls
+
+
+    Directory: C:\Users\nyasi
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---         2/28/2026  12:40 PM                Contacts
+d-r---         3/22/2026   2:27 PM                Downloads
+d-r---         2/28/2026  12:40 PM                Favorites
+d-----         3/14/2026   6:36 PM                labs
+d-r---         2/28/2026  12:40 PM                Links
+d-r---         2/28/2026  12:40 PM                Music
+dar--l         3/21/2026   7:39 PM                OneDrive
+d-r---         2/28/2026  12:40 PM                Saved Games
+d-r---         3/12/2026   1:49 PM                Searches
+d-r---         2/28/2026   2:43 PM                Videos
+-a----         3/14/2026   9:13 PM            134 .bashrc
+-a----         3/15/2026   6:33 PM          10979 .bash_history
+-a----         3/14/2026   9:27 PM             99 .bash_profile
+-a----          3/3/2026   6:35 PM            194 .gitconfig
+-a----         3/15/2026   6:59 PM             15 .minttyrc
+-a----         3/22/2026   2:17 PM         226168 cacert.pem
+-a----          3/3/2026   4:30 PM           1732 private.key
+-a----          3/3/2026   3:04 PM           1732 private_key.pem
+-a----          3/3/2026   4:31 PM            460 public.key
+
+
+PS C:\Users\nyasi> cd one drive
+Set-Location : A positional parameter cannot be found that accepts argument 'drive'.
+At line:1 char:1
++ cd one drive
++ ~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\nyasi> ls
+
+
+    Directory: C:\Users\nyasi
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---         2/28/2026  12:40 PM                Contacts
+d-r---         3/22/2026   2:27 PM                Downloads
+d-r---         2/28/2026  12:40 PM                Favorites
+d-----         3/14/2026   6:36 PM                labs
+d-r---         2/28/2026  12:40 PM                Links
+d-r---         2/28/2026  12:40 PM                Music
+dar--l         3/21/2026   7:39 PM                OneDrive
+d-r---         2/28/2026  12:40 PM                Saved Games
+d-r---         3/12/2026   1:49 PM                Searches
+d-r---         2/28/2026   2:43 PM                Videos
+-a----         3/14/2026   9:13 PM            134 .bashrc
+-a----         3/15/2026   6:33 PM          10979 .bash_history
+-a----         3/14/2026   9:27 PM             99 .bash_profile
+-a----          3/3/2026   6:35 PM            194 .gitconfig
+-a----         3/15/2026   6:59 PM             15 .minttyrc
+-a----         3/22/2026   2:17 PM         226168 cacert.pem
+-a----          3/3/2026   4:30 PM           1732 private.key
+-a----          3/3/2026   3:04 PM           1732 private_key.pem
+-a----          3/3/2026   4:31 PM            460 public.key
+
+
+PS C:\Users\nyasi> cd ..
+PS C:\Users> ls
+
+
+    Directory: C:\Users
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         3/22/2026   2:17 PM                nyasi
+d-r---        10/22/2025   1:55 PM                Public
+
+
+PS C:\Users> ls
+
+
+    Directory: C:\Users
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         3/22/2026   2:17 PM                nyasi
+d-r---        10/22/2025   1:55 PM                Public
+
+
+PS C:\Users> cd nyasi
+PS C:\Users\nyasi> ls
+
+
+    Directory: C:\Users\nyasi
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---         2/28/2026  12:40 PM                Contacts
+d-r---         3/22/2026   2:27 PM                Downloads
+d-r---         2/28/2026  12:40 PM                Favorites
+d-----         3/14/2026   6:36 PM                labs
+d-r---         2/28/2026  12:40 PM                Links
+d-r---         2/28/2026  12:40 PM                Music
+dar--l         3/21/2026   7:39 PM                OneDrive
+d-r---         2/28/2026  12:40 PM                Saved Games
+d-r---         3/12/2026   1:49 PM                Searches
+d-r---         2/28/2026   2:43 PM                Videos
+-a----         3/14/2026   9:13 PM            134 .bashrc
+-a----         3/15/2026   6:33 PM          10979 .bash_history
+-a----         3/14/2026   9:27 PM             99 .bash_profile
+-a----          3/3/2026   6:35 PM            194 .gitconfig
+-a----         3/15/2026   6:59 PM             15 .minttyrc
+-a----         3/22/2026   2:17 PM         226168 cacert.pem
+-a----          3/3/2026   4:30 PM           1732 private.key
+-a----          3/3/2026   3:04 PM           1732 private_key.pem
+-a----          3/3/2026   4:31 PM            460 public.key
+
+
+PS C:\Users\nyasi> cd one drive
+Set-Location : A positional parameter cannot be found that accepts argument 'drive'.
+At line:1 char:1
++ cd one drive
++ ~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\nyasi> ls one drive
+ls : Cannot find path 'C:\Users\nyasi\one' because it does not exist.
+At line:1 char:1
++ ls one drive
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nyasi\one:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+PS C:\Users\nyasi> cd
+PS C:\Users\nyasi> ls
+
+
+    Directory: C:\Users\nyasi
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---         2/28/2026  12:40 PM                Contacts
+d-r---         3/22/2026   2:27 PM                Downloads
+d-r---         2/28/2026  12:40 PM                Favorites
+d-----         3/14/2026   6:36 PM                labs
+d-r---         2/28/2026  12:40 PM                Links
+d-r---         2/28/2026  12:40 PM                Music
+dar--l         3/21/2026   7:39 PM                OneDrive
+d-r---         2/28/2026  12:40 PM                Saved Games
+d-r---         3/12/2026   1:49 PM                Searches
+d-r---         2/28/2026   2:43 PM                Videos
+-a----         3/14/2026   9:13 PM            134 .bashrc
+-a----         3/15/2026   6:33 PM          10979 .bash_history
+-a----         3/14/2026   9:27 PM             99 .bash_profile
+-a----          3/3/2026   6:35 PM            194 .gitconfig
+-a----         3/15/2026   6:59 PM             15 .minttyrc
+-a----         3/22/2026   2:17 PM         226168 cacert.pem
+-a----          3/3/2026   4:30 PM           1732 private.key
+-a----          3/3/2026   3:04 PM           1732 private_key.pem
+-a----          3/3/2026   4:31 PM            460 public.key
+
+
+PS C:\Users\nyasi> cd OneDrive
+PS C:\Users\nyasi\OneDrive> ls
+
+
+    Directory: C:\Users\nyasi\OneDrive
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----l         2/28/2026   1:01 PM                Attachments
+d-r--l         3/22/2026   3:05 PM                Desktop
+d-r--l         3/18/2026   6:28 PM                Documents
+d----l         3/11/2026   6:18 PM                Microsoft Copilot Chat Files
+d-r--l         3/18/2026   6:28 PM                Pictures
+d----l         2/28/2026   1:01 PM                Scans
+-a---l         7/22/2018  12:21 PM       (398083) Getting started with OneDrive.pdf
+-a----         3/21/2026   7:39 PM          17880 Week 3 Cheat Sheet .docx
+
+
+PS C:\Users\nyasi\OneDrive> cd documents
+PS C:\Users\nyasi\OneDrive\documents> cd docuemnts
+cd : Cannot find path 'C:\Users\nyasi\OneDrive\documents\docuemnts' because it does not exist.
+At line:1 char:1
++ cd docuemnts
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nyasi\...ments\docuemnts:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\nyasi\OneDrive\documents> cd documents
+PS C:\Users\nyasi\OneDrive\documents\documents> ls
+
+
+    Directory: C:\Users\nyasi\OneDrive\documents\documents
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+dar--l         3/15/2026   6:54 PM                pki-portfolio-nyaisa-deverger
+
+
+PS C:\Users\nyasi\OneDrive\documents\documents> cd .\pki-portfolio-nyaisa-deverger\
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger> ls
+
+
+    Directory: C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+dar--l         3/11/2026   6:18 PM                assets
+dar--l         3/15/2026   6:55 PM                labs
+dar--l         3/11/2026   6:18 PM                notes
+dar--l         3/11/2026   6:18 PM                projects
+dar--l         3/11/2026   6:18 PM                reflections
+-a---l          3/3/2026   6:09 PM           3425 README.md
+-a---l          3/3/2026   6:09 PM            447 START-HERE.md
+
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger> cd labs
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> cd submissions\
+cd : Cannot find path 'C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\' because it does not exist.
+At line:1 char:1
++ cd submissions\
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nyasi\...bs\submissions\:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> cd submissions
+cd : Cannot find path 'C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions' because it does not exist.
+At line:1 char:1
++ cd submissions
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nyasi\...abs\submissions:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> cd week-03
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\week-03> cd ..
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> mkdir submissions
+
+
+    Directory: C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         3/22/2026   3:44 PM                submissions
+
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> cd
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> ls
+
+
+    Directory: C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+dar--l         3/22/2026   3:44 PM                submissions
+dar--l         3/11/2026   6:18 PM                week-01
+dar--l         3/15/2026   6:55 PM                week-02
+dar--l         3/11/2026   6:18 PM                week-03
+dar--l         3/11/2026   6:18 PM                week-04
+dar--l         3/11/2026   6:18 PM                week-05
+dar--l         3/11/2026   6:18 PM                week-06
+dar--l         3/11/2026   6:18 PM                week-07
+dar--l         3/11/2026   6:18 PM                week-08
+
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> mv week-03
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> mv week-03 submissions
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> ls
+
+
+    Directory: C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+dar--l         3/22/2026   3:46 PM                submissions
+dar--l         3/11/2026   6:18 PM                week-01
+dar--l         3/15/2026   6:55 PM                week-02
+dar--l         3/11/2026   6:18 PM                week-04
+dar--l         3/11/2026   6:18 PM                week-05
+dar--l         3/11/2026   6:18 PM                week-06
+dar--l         3/11/2026   6:18 PM                week-07
+dar--l         3/11/2026   6:18 PM                week-08
+
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs> cd submissions
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> openssl s_client -connect google.com:443 -showcerts
+Connecting to 2607:f8b0:4002:c1b::65
+CONNECTED(00000200)
+depth=2 C=US, O=Google Trust Services LLC, CN=GTS Root R4
+verify error:num=20:unable to get local issuer certificate
+verify return:1
+depth=1 C=US, O=Google Trust Services, CN=WE2
+verify return:1
+depth=0 CN=*.google.com
+verify return:1
+---
+Certificate chain
+ 0 s:CN=*.google.com
+   i:C=US, O=Google Trust Services, CN=WE2
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA256
+   v:NotBefore: Feb 23 18:19:56 2026 GMT; NotAfter: May 18 18:19:55 2026 GMT
+-----BEGIN CERTIFICATE-----
+MIINdDCCDRqgAwIBAgIRAKojAkKO9Dl+ELssMpMc/C4wCgYIKoZIzj0EAwIwOzEL
+MAkGA1UEBhMCVVMxHjAcBgNVBAoTFUdvb2dsZSBUcnVzdCBTZXJ2aWNlczEMMAoG
+A1UEAxMDV0UyMB4XDTI2MDIyMzE4MTk1NloXDTI2MDUxODE4MTk1NVowFzEVMBMG
+A1UEAwwMKi5nb29nbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExb7m
+Ah44jfj6UbfszAaxCD+G+HaijWd0n8Yd1rAsiCpdNg3MoE5Uv2Zw9XFGoU/DW8lD
+RdbmmQeJNNYqR8BlkKOCDCEwggwdMA4GA1UdDwEB/wQEAwIHgDATBgNVHSUEDDAK
+BggrBgEFBQcDATAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBThnyBKS7h5ox+oX6DV
+c4aeAJ+hIzAfBgNVHSMEGDAWgBR1vsR3ron2RDd9z7FoHx0a69w0WTBYBggrBgEF
+BQcBAQRMMEowIQYIKwYBBQUHMAGGFWh0dHA6Ly9vLnBraS5nb29nL3dlMjAlBggr
+BgEFBQcwAoYZaHR0cDovL2kucGtpLmdvb2cvd2UyLmNydDCCCfgGA1UdEQSCCe8w
+ggnrggwqLmdvb2dsZS5jb22CFiouYXBwZW5naW5lLmdvb2dsZS5jb22CCSouYmRu
+LmRldoIVKi5vcmlnaW4tdGVzdC5iZG4uZGV2ghIqLmNsb3VkLmdvb2dsZS5jb22C
+GCouY3Jvd2Rzb3VyY2UuZ29vZ2xlLmNvbYIYKi5kYXRhY29tcHV0ZS5nb29nbGUu
+Y29tggsqLmdvb2dsZS5jYYILKi5nb29nbGUuY2yCDiouZ29vZ2xlLmNvLmlugg4q
+Lmdvb2dsZS5jby5qcIIOKi5nb29nbGUuY28udWuCDyouZ29vZ2xlLmNvbS5hcoIP
+Ki5nb29nbGUuY29tLmF1gg8qLmdvb2dsZS5jb20uYnKCDyouZ29vZ2xlLmNvbS5j
+b4IPKi5nb29nbGUuY29tLm14gg8qLmdvb2dsZS5jb20udHKCDyouZ29vZ2xlLmNv
+bS52boILKi5nb29nbGUuZGWCCyouZ29vZ2xlLmVzggsqLmdvb2dsZS5mcoILKi5n
+b29nbGUuaHWCCyouZ29vZ2xlLml0ggsqLmdvb2dsZS5ubIILKi5nb29nbGUucGyC
+CyouZ29vZ2xlLnB0gg8qLmdvb2dsZWFwaXMuY26CDCouZ3N0YXRpYy5jboIQKi5n
+c3RhdGljLWNuLmNvbYIPZ29vZ2xlY25hcHBzLmNughEqLmdvb2dsZWNuYXBwcy5j
+boIRZ29vZ2xlYXBwcy1jbi5jb22CEyouZ29vZ2xlYXBwcy1jbi5jb22CDGdrZWNu
+YXBwcy5jboIOKi5na2VjbmFwcHMuY26CEmdvb2dsZWRvd25sb2Fkcy5jboIUKi5n
+b29nbGVkb3dubG9hZHMuY26CEHJlY2FwdGNoYS5uZXQuY26CEioucmVjYXB0Y2hh
+Lm5ldC5jboIQcmVjYXB0Y2hhLWNuLm5ldIISKi5yZWNhcHRjaGEtY24ubmV0ggt3
+aWRldmluZS5jboINKi53aWRldmluZS5jboIRYW1wcHJvamVjdC5vcmcuY26CEyou
+YW1wcHJvamVjdC5vcmcuY26CEWFtcHByb2plY3QubmV0LmNughMqLmFtcHByb2pl
+Y3QubmV0LmNughdnb29nbGUtYW5hbHl0aWNzLWNuLmNvbYIZKi5nb29nbGUtYW5h
+bHl0aWNzLWNuLmNvbYIXZ29vZ2xlYWRzZXJ2aWNlcy1jbi5jb22CGSouZ29vZ2xl
+YWRzZXJ2aWNlcy1jbi5jb22CEWdvb2dsZXZhZHMtY24uY29tghMqLmdvb2dsZXZh
+ZHMtY24uY29tghFnb29nbGVhcGlzLWNuLmNvbYITKi5nb29nbGVhcGlzLWNuLmNv
+bYIVZ29vZ2xlb3B0aW1pemUtY24uY29tghcqLmdvb2dsZW9wdGltaXplLWNuLmNv
+bYISZG91YmxlY2xpY2stY24ubmV0ghQqLmRvdWJsZWNsaWNrLWNuLm5ldIIYKi5m
+bHMuZG91YmxlY2xpY2stY24ubmV0ghYqLmcuZG91YmxlY2xpY2stY24ubmV0gg5k
+b3VibGVjbGljay5jboIQKi5kb3VibGVjbGljay5jboIUKi5mbHMuZG91YmxlY2xp
+Y2suY26CEiouZy5kb3VibGVjbGljay5jboIRZGFydHNlYXJjaC1jbi5uZXSCEyou
+ZGFydHNlYXJjaC1jbi5uZXSCHWdvb2dsZXRyYXZlbGFkc2VydmljZXMtY24uY29t
+gh8qLmdvb2dsZXRyYXZlbGFkc2VydmljZXMtY24uY29tghhnb29nbGV0YWdzZXJ2
+aWNlcy1jbi5jb22CGiouZ29vZ2xldGFnc2VydmljZXMtY24uY29tghdnb29nbGV0
+YWdtYW5hZ2VyLWNuLmNvbYIZKi5nb29nbGV0YWdtYW5hZ2VyLWNuLmNvbYIYZ29v
+Z2xlc3luZGljYXRpb24tY24uY29tghoqLmdvb2dsZXN5bmRpY2F0aW9uLWNuLmNv
+bYIkKi5zYWZlZnJhbWUuZ29vZ2xlc3luZGljYXRpb24tY24uY29tghZhcHAtbWVh
+c3VyZW1lbnQtY24uY29tghgqLmFwcC1tZWFzdXJlbWVudC1jbi5jb22CC2d2dDEt
+Y24uY29tgg0qLmd2dDEtY24uY29tggtndnQyLWNuLmNvbYINKi5ndnQyLWNuLmNv
+bYILMm1kbi1jbi5uZXSCDSouMm1kbi1jbi5uZXSCFGdvb2dsZWZsaWdodHMtY24u
+bmV0ghYqLmdvb2dsZWZsaWdodHMtY24ubmV0ggxhZG1vYi1jbi5jb22CDiouYWRt
+b2ItY24uY29tghkqLmdlbWluaS5jbG91ZC5nb29nbGUuY29tghRnb29nbGVzYW5k
+Ym94LWNuLmNvbYIWKi5nb29nbGVzYW5kYm94LWNuLmNvbYIeKi5zYWZlbnVwLmdv
+b2dsZXNhbmRib3gtY24uY29tgg0qLmdzdGF0aWMuY29tghQqLm1ldHJpYy5nc3Rh
+dGljLmNvbYIKKi5ndnQxLmNvbYIRKi5nY3BjZG4uZ3Z0MS5jb22CCiouZ3Z0Mi5j
+b22CDiouZ2NwLmd2dDIuY29tghAqLnVybC5nb29nbGUuY29tghYqLnlvdXR1YmUt
+bm9jb29raWUuY29tggsqLnl0aW1nLmNvbYIKYWkuYW5kcm9pZIILYW5kcm9pZC5j
+b22CDSouYW5kcm9pZC5jb22CEyouZmxhc2guYW5kcm9pZC5jb22CBGcuY26CBiou
+Zy5jboIEZy5jb4IGKi5nLmNvggZnb28uZ2yCCnd3dy5nb28uZ2yCFGdvb2dsZS1h
+bmFseXRpY3MuY29tghYqLmdvb2dsZS1hbmFseXRpY3MuY29tggpnb29nbGUuY29t
+ghJnb29nbGVjb21tZXJjZS5jb22CFCouZ29vZ2xlY29tbWVyY2UuY29tgghnZ3Bo
+dC5jboIKKi5nZ3BodC5jboIKdXJjaGluLmNvbYIMKi51cmNoaW4uY29tggh5b3V0
+dS5iZYILeW91dHViZS5jb22CDSoueW91dHViZS5jb22CEW11c2ljLnlvdXR1YmUu
+Y29tghMqLm11c2ljLnlvdXR1YmUuY29tghR5b3V0dWJlZWR1Y2F0aW9uLmNvbYIW
+Ki55b3V0dWJlZWR1Y2F0aW9uLmNvbYIPeW91dHViZWtpZHMuY29tghEqLnlvdXR1
+YmVraWRzLmNvbYIFeXQuYmWCByoueXQuYmWCGmFuZHJvaWQuY2xpZW50cy5nb29n
+bGUuY29tghMqLmFuZHJvaWQuZ29vZ2xlLmNughIqLmNocm9tZS5nb29nbGUuY26C
+FiouZGV2ZWxvcGVycy5nb29nbGUuY26CFSouYWlzdHVkaW8uZ29vZ2xlLmNvbTAT
+BgNVHSAEDDAKMAgGBmeBDAECATA2BgNVHR8ELzAtMCugKaAnhiVodHRwOi8vYy5w
+a2kuZ29vZy93ZTIveUs1blBodEhLUXMuY3JsMIIBAwYKKwYBBAHWeQIEAgSB9ASB
+8QDvAHUAlpdkv1VYl633Q4doNwhCd+nwOtX2pPM2bkakPw/KqcYAAAGci/G/FQAA
+BAMARjBEAiBXOqLG3Zwee9I3cH+1TRTCUXAdghFQJGsi2+Q0TkvezAIgUUbW1Flg
+wz2+6sGKzmq8iAn9zbXa08KNcFsWQ6hhpIAAdgBJnJtp3h187Pw23s2HZKa4W68K
+h4AZ0VVS++nrKd34wwAAAZyL8b7sAAAEAwBHMEUCIEPT2kIhn6y9C4taRszYqpoF
+vQBQnbZxzctWhyhxMSgJAiEAnuuafbMoTVi/p/HTrJmqQcUpArZR6qr01AzPYsJT
+0eMwCgYIKoZIzj0EAwIDSAAwRQIgKdLCPsupE1B/VLXe6Wn0SkWedLyK/z+3FRAg
+ZJX6JIkCIQCNbrL/U+/sfir1IDpD0IlVtpu6dgo1B9yUcMp5hwzWSA==
+-----END CERTIFICATE-----
+ 1 s:C=US, O=Google Trust Services, CN=WE2
+   i:C=US, O=Google Trust Services LLC, CN=GTS Root R4
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA384
+   v:NotBefore: Dec 13 09:00:00 2023 GMT; NotAfter: Feb 20 14:00:00 2029 GMT
+-----BEGIN CERTIFICATE-----
+MIICnjCCAiWgAwIBAgIQf/Mta0CdFdWWWwWHOnxy4DAKBggqhkjOPQQDAzBHMQsw
+CQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEU
+MBIGA1UEAxMLR1RTIFJvb3QgUjQwHhcNMjMxMjEzMDkwMDAwWhcNMjkwMjIwMTQw
+MDAwWjA7MQswCQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNlcnZp
+Y2VzMQwwCgYDVQQDEwNXRTIwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ1fh/y
+FO2QfeGeKjRDhsHVlugncN+eBMupyoZ5CwhNRorCdKS72b/u/SPXOPNL71QX4b7n
+ylUlqAwwrC1dTqFRo4H+MIH7MA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggr
+BgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQU
+db7Ed66J9kQ3fc+xaB8dGuvcNFkwHwYDVR0jBBgwFoAUgEzW63T/STaj1dj8tT7F
+avCUHYwwNAYIKwYBBQUHAQEEKDAmMCQGCCsGAQUFBzAChhhodHRwOi8vaS5wa2ku
+Z29vZy9yNC5jcnQwKwYDVR0fBCQwIjAgoB6gHIYaaHR0cDovL2MucGtpLmdvb2cv
+ci9yNC5jcmwwEwYDVR0gBAwwCjAIBgZngQwBAgEwCgYIKoZIzj0EAwMDZwAwZAIw
+C724NlXINaPS2X05c9P394K4CdGBb+VkRdveqsAORRKPrJPoH2DsLn5ELCKUkeys
+AjAv3wyQdkwtaWHVT/2YmBiE2zTqmOybzYhi/9Jl5TNqmgztI0k4L1G/kdASosk4
+ONo=
+-----END CERTIFICATE-----
+ 2 s:C=US, O=Google Trust Services LLC, CN=GTS Root R4
+   i:C=BE, O=GlobalSign nv-sa, OU=Root CA, CN=GlobalSign Root CA
+   a:PKEY: EC, (secp384r1); sigalg: sha256WithRSAEncryption
+   v:NotBefore: Nov 15 03:43:21 2023 GMT; NotAfter: Jan 28 00:00:42 2028 GMT
+-----BEGIN CERTIFICATE-----
+MIIDejCCAmKgAwIBAgIQf+UwvzMTQ77dghYQST2KGzANBgkqhkiG9w0BAQsFADBX
+MQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEQMA4GA1UE
+CxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFsU2lnbiBSb290IENBMB4XDTIzMTEx
+NTAzNDMyMVoXDTI4MDEyODAwMDA0MlowRzELMAkGA1UEBhMCVVMxIjAgBgNVBAoT
+GUdvb2dsZSBUcnVzdCBTZXJ2aWNlcyBMTEMxFDASBgNVBAMTC0dUUyBSb290IFI0
+MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE83Rzp2iLYK5DuDXFgTB7S0md+8Fhzube
+Rr1r1WEYNa5A3XP3iZEwWus87oV8okB2O6nGuEfYKueSkWpz6bFyOZ8pn6KY019e
+WIZlD6GEZQbR3IvJx3PIjGov5cSr0R2Ko4H/MIH8MA4GA1UdDwEB/wQEAwIBhjAd
+BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+BgNVHQ4EFgQUgEzW63T/STaj1dj8tT7FavCUHYwwHwYDVR0jBBgwFoAUYHtmGkUN
+l8qJUC99BM00qP/8/UswNgYIKwYBBQUHAQEEKjAoMCYGCCsGAQUFBzAChhpodHRw
+Oi8vaS5wa2kuZ29vZy9nc3IxLmNydDAtBgNVHR8EJjAkMCKgIKAehhxodHRwOi8v
+Yy5wa2kuZ29vZy9yL2dzcjEuY3JsMBMGA1UdIAQMMAowCAYGZ4EMAQIBMA0GCSqG
+SIb3DQEBCwUAA4IBAQAYQrsPBtYDh5bjP2OBDwmkoWhIDDkic574y04tfzHpn+cJ
+odI2D4SseesQ6bDrarZ7C30ddLibZatoKiws3UL9xnELz4ct92vID24FfVbiI1hY
++SW6FoVHkNeWIP0GCbaM4C6uVdF5dTUsMVs/ZbzNnIdCp5Gxmx5ejvEau8otR/Cs
+kGN+hr/W5GvT1tMBjgWKZ1i4//emhA1JG1BbPzoLJQvyEotc03lXjTaCzv8mEbep
+8RqZ7a2CPsgRbuvTPBwcOMBBmuFeU88+FSBX6+7iP0il8b4Z0QFqIwwMHfs/L6K1
+vepuoxtGzi4CZ68zJpiq1UvSqTbFJjtbD4seiMHl
+-----END CERTIFICATE-----
+---
+Server certificate
+subject=CN=*.google.com
+issuer=C=US, O=Google Trust Services, CN=WE2
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ecdsa_secp256r1_sha256
+Negotiated TLS1.3 group: X25519MLKEM768
+---
+SSL handshake has read 6419 bytes and written 1623 bytes
+Verification error: unable to get local issuer certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+Server public key is 256 bit
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 20 (unable to get local issuer certificate)
+---
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> ^C
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> wsl vi leaf_cert.pem
+The Windows Subsystem for Linux is not installed. You can install by running 'wsl.exe --install'.
+For more information please visit https://aka.ms/wslinstall
+
+Press any key to install Windows Subsystem for Linux.
+Press CTRL-C or close this window to cancel.
+This prompt will time out in 60 seconds.
+Operation aborted
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> wsl vi leaf_cert.pem
+The Windows Subsystem for Linux is not installed. You can install by running 'wsl.exe --install'.
+For more information please visit https://aka.ms/wslinstall
+
+Press any key to install Windows Subsystem for Linux.
+Press CTRL-C or close this window to cancel.
+This prompt will time out in 60 seconds.
+The requested operation requires elevation.
+Downloading: Windows Subsystem for Linux 2.6.3
+Installing: Windows Subsystem for Linux 2.6.3
+Windows Subsystem for Linux 2.6.3 has been installed.
+Installing Windows optional component: VirtualMachinePlatform
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.5074
+
+Image Version: 10.0.26200.8037
+
+Enabling feature(s)
+[==========================100.0%==========================]
+The operation completed successfully.
+The requested operation is successful. Changes will not be effective until the system is rebooted.
+Windows Subsystem for Linux has no installed distributions.
+You can resolve this by installing a distribution with the instructions below:
+
+Use 'wsl.exe --list --online' to list available distributions
+and 'wsl.exe --install <Distro>' to install.
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> wsl vi leaf_cert.pem
+Windows Subsystem for Linux has no installed distributions.
+You can resolve this by installing a distribution with the instructions below:
+
+Use 'wsl.exe --list --online' to list available distributions
+and 'wsl.exe --install <Distro>' to install.
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> vi leaf_cert.pem
+vi : The term 'vi' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vi leaf_cert.pem
++ ~~
+    + CategoryInfo          : ObjectNotFound: (vi:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> vim leaf_cert.pem
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vim leaf_cert.pem
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> wsl.exe
+Windows Subsystem for Linux has no installed distributions.
+You can resolve this by installing a distribution with the instructions below:
+
+Use 'wsl.exe --list --online' to list available distributions
+and 'wsl.exe --install <Distro>' to install.
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> wsl.exe --online
+Invalid command line argument: --online
+Please use 'wsl.exe --help' to get a list of supported arguments.
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> 'wsl.exe --list --online'
+wsl.exe --list --online
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> wsl.exe --list --online
+The following is a list of valid distributions that can be installed.
+Install using 'wsl.exe --install <Distro>'.
+
+NAME                            FRIENDLY NAME
+Ubuntu                          Ubuntu
+Ubuntu-24.04                    Ubuntu 24.04 LTS
+Ubuntu-22.04                    Ubuntu 22.04 LTS
+Ubuntu-20.04                    Ubuntu 20.04 LTS
+openSUSE-Tumbleweed             openSUSE Tumbleweed
+openSUSE-Leap-16.0              openSUSE Leap 16.0
+SUSE-Linux-Enterprise-15-SP7    SUSE Linux Enterprise 15 SP7
+SUSE-Linux-Enterprise-16.0      SUSE Linux Enterprise 16.0
+kali-linux                      Kali Linux Rolling
+Debian                          Debian GNU/Linux
+AlmaLinux-8                     AlmaLinux OS 8
+AlmaLinux-9                     AlmaLinux OS 9
+AlmaLinux-Kitten-10             AlmaLinux OS Kitten 10
+AlmaLinux-10                    AlmaLinux OS 10
+archlinux                       Arch Linux
+FedoraLinux-43                  Fedora Linux 43
+FedoraLinux-42                  Fedora Linux 42
+eLxr                            eLxr 12.12.0.0 GNU/Linux
+OracleLinux_7_9                 Oracle Linux 7.9
+OracleLinux_8_10                Oracle Linux 8.10
+OracleLinux_9_5                 Oracle Linux 9.5
+openSUSE-Leap-15.6              openSUSE Leap 15.6
+SUSE-Linux-Enterprise-15-SP6    SUSE Linux Enterprise 15 SP6
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                             >
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                               openssl x509 -in leaf_cert.pem -text -noout^C
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions>
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions>
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions>
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions>
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions>
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> openssl x509 -in leaf_cert.pem -text -noout
+Could not open file or uri for loading certificate from leaf_cert.pem: No such file or directory
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> ls
+
+
+    Directory: C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+dar--l         3/22/2026   4:04 PM                week-03
+
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> cd
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions> cd week-03
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> ls
+
+
+    Directory: C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---l          3/3/2026   6:09 PM              2 .keep
+-a---l         3/22/2026   4:04 PM           4798 leaf_cert.pem
+
+
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> openssl x509 -in leaf_cert.pem -text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            aa:23:02:42:8e:f4:39:7e:10:bb:2c:32:93:1c:fc:2e
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: C=US, O=Google Trust Services, CN=WE2
+        Validity
+            Not Before: Feb 23 18:19:56 2026 GMT
+            Not After : May 18 18:19:55 2026 GMT
+        Subject: CN=*.google.com
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:c5:be:e6:02:1e:38:8d:f8:fa:51:b7:ec:cc:06:
+                    b1:08:3f:86:f8:76:a2:8d:67:74:9f:c6:1d:d6:b0:
+                    2c:88:2a:5d:36:0d:cc:a0:4e:54:bf:66:70:f5:71:
+                    46:a1:4f:c3:5b:c9:43:45:d6:e6:99:07:89:34:d6:
+                    2a:47:c0:65:90
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier:
+                E1:9F:20:4A:4B:B8:79:A3:1F:A8:5F:A0:D5:73:86:9E:00:9F:A1:23
+            X509v3 Authority Key Identifier:
+                75:BE:C4:77:AE:89:F6:44:37:7D:CF:B1:68:1F:1D:1A:EB:DC:34:59
+            Authority Information Access:
+                OCSP - URI:http://o.pki.goog/we2
+                CA Issuers - URI:http://i.pki.goog/we2.crt
+            X509v3 Subject Alternative Name:
+                DNS:*.google.com, DNS:*.appengine.google.com, DNS:*.bdn.dev, DNS:*.origin-test.bdn.dev, DNS:*.cloud.google.com, DNS:*.crowdsource.google.com, DNS:*.datacompute.google.com, DNS:*.google.ca, DNS:*.google.cl, DNS:*.google.co.in, DNS:*.google.co.jp, DNS:*.google.co.uk, DNS:*.google.com.ar, DNS:*.google.com.au, DNS:*.google.com.br, DNS:*.google.com.co, DNS:*.google.com.mx, DNS:*.google.com.tr, DNS:*.google.com.vn, DNS:*.google.de, DNS:*.google.es, DNS:*.google.fr, DNS:*.google.hu, DNS:*.google.it, DNS:*.google.nl, DNS:*.google.pl, DNS:*.google.pt, DNS:*.googleapis.cn, DNS:*.gstatic.cn, DNS:*.gstatic-cn.com, DNS:googlecnapps.cn, DNS:*.googlecnapps.cn, DNS:googleapps-cn.com, DNS:*.googleapps-cn.com, DNS:gkecnapps.cn, DNS:*.gkecnapps.cn, DNS:googledownloads.cn, DNS:*.googledownloads.cn, DNS:recaptcha.net.cn, DNS:*.recaptcha.net.cn, DNS:recaptcha-cn.net, DNS:*.recaptcha-cn.net, DNS:widevine.cn, DNS:*.widevine.cn, DNS:ampproject.org.cn, DNS:*.ampproject.org.cn, DNS:ampproject.net.cn, DNS:*.ampproject.net.cn, DNS:google-analytics-cn.com, DNS:*.google-analytics-cn.com, DNS:googleadservices-cn.com, DNS:*.googleadservices-cn.com, DNS:googlevads-cn.com, DNS:*.googlevads-cn.com, DNS:googleapis-cn.com, DNS:*.googleapis-cn.com, DNS:googleoptimize-cn.com, DNS:*.googleoptimize-cn.com, DNS:doubleclick-cn.net, DNS:*.doubleclick-cn.net, DNS:*.fls.doubleclick-cn.net, DNS:*.g.doubleclick-cn.net, DNS:doubleclick.cn, DNS:*.doubleclick.cn, DNS:*.fls.doubleclick.cn, DNS:*.g.doubleclick.cn, DNS:dartsearch-cn.net, DNS:*.dartsearch-cn.net, DNS:googletraveladservices-cn.com, DNS:*.googletraveladservices-cn.com, DNS:googletagservices-cn.com, DNS:*.googletagservices-cn.com, DNS:googletagmanager-cn.com, DNS:*.googletagmanager-cn.com, DNS:googlesyndication-cn.com, DNS:*.googlesyndication-cn.com, DNS:*.safeframe.googlesyndication-cn.com, DNS:app-measurement-cn.com, DNS:*.app-measurement-cn.com, DNS:gvt1-cn.com, DNS:*.gvt1-cn.com, DNS:gvt2-cn.com, DNS:*.gvt2-cn.com, DNS:2mdn-cn.net,DNS:*.2mdn-cn.net, DNS:googleflights-cn.net, DNS:*.googleflights-cn.net, DNS:admob-cn.com, DNS:*.admob-cn.com, DNS:*.gemini.cloud.google.com, DNS:googlesandbox-cn.com, DNS:*.googlesandbox-cn.com, DNS:*.safenup.googlesandbox-cn.com, DNS:*.gstatic.com, DNS:*.metric.gstatic.com, DNS:*.gvt1.com, DNS:*.gcpcdn.gvt1.com, DNS:*.gvt2.com, DNS:*.gcp.gvt2.com, DNS:*.url.google.com, DNS:*.youtube-nocookie.com, DNS:*.ytimg.com, DNS:ai.android, DNS:android.com, DNS:*.android.com, DNS:*.flash.android.com, DNS:g.cn, DNS:*.g.cn, DNS:g.co, DNS:*.g.co, DNS:goo.gl, DNS:www.goo.gl, DNS:google-analytics.com, DNS:*.google-analytics.com, DNS:google.com, DNS:googlecommerce.com, DNS:*.googlecommerce.com, DNS:ggpht.cn, DNS:*.ggpht.cn, DNS:urchin.com, DNS:*.urchin.com, DNS:youtu.be, DNS:youtube.com, DNS:*.youtube.com, DNS:music.youtube.com, DNS:*.music.youtube.com, DNS:youtubeeducation.com, DNS:*.youtubeeducation.com, DNS:youtubekids.com, DNS:*.youtubekids.com, DNS:yt.be, DNS:*.yt.be, DNS:android.clients.google.com, DNS:*.android.google.cn, DNS:*.chrome.google.cn, DNS:*.developers.google.cn, DNS:*.aistudio.google.com
+            X509v3 Certificate Policies:
+                Policy: 2.23.140.1.2.1
+            X509v3 CRL Distribution Points:
+                Full Name:
+                  URI:http://c.pki.goog/we2/yK5nPhtHKQs.crl
+
+            CT Precertificate SCTs:
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 96:97:64:BF:55:58:97:AD:F7:43:87:68:37:08:42:77:
+                                E9:F0:3A:D5:F6:A4:F3:36:6E:46:A4:3F:0F:CA:A9:C6
+                    Timestamp : Feb 23 19:20:02.069 2026 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:44:02:20:57:3A:A2:C6:DD:9C:1E:7B:D2:37:70:7F:
+                                B5:4D:14:C2:51:70:1D:82:11:50:24:6B:22:DB:E4:34:
+                                4E:4B:DE:CC:02:20:51:46:D6:D4:59:60:C3:3D:BE:EA:
+                                C1:8A:CE:6A:BC:88:09:FD:CD:B5:DA:D3:C2:8D:70:5B:
+                                16:43:A8:61:A4:80
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 49:9C:9B:69:DE:1D:7C:EC:FC:36:DE:CD:87:64:A6:B8:
+                                5B:AF:0A:87:80:19:D1:55:52:FB:E9:EB:29:DD:F8:C3
+                    Timestamp : Feb 23 19:20:02.028 2026 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:43:D3:DA:42:21:9F:AC:BD:0B:8B:5A:46:
+                                CC:D8:AA:9A:05:BD:00:50:9D:B6:71:CD:CB:56:87:28:
+                                71:31:28:09:02:21:00:9E:EB:9A:7D:B3:28:4D:58:BF:
+                                A7:F1:D3:AC:99:AA:41:C5:29:02:B6:51:EA:AA:F4:D4:
+                                0C:CF:62:C2:53:D1:E3
+    Signature Algorithm: ecdsa-with-SHA256
+    Signature Value:
+        30:45:02:20:29:d2:c2:3e:cb:a9:13:50:7f:54:b5:de:e9:69:
+        f4:4a:45:9e:74:bc:8a:ff:3f:b7:15:10:20:64:95:fa:24:89:
+        02:21:00:8d:6e:b2:ff:53:ef:ec:7e:2a:f5:20:3a:43:d0:89:
+        55:b6:9b:ba:76:0a:35:07:dc:94:70:ca:79:87:0c:d6:48
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> openssl x509 -in leaf_cert.pem -text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            aa:23:02:42:8e:f4:39:7e:10:bb:2c:32:93:1c:fc:2e
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: C=US, O=Google Trust Services, CN=WE2
+        Validity
+            Not Before: Feb 23 18:19:56 2026 GMT
+            Not After : May 18 18:19:55 2026 GMT
+        Subject: CN=*.google.com
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:c5:be:e6:02:1e:38:8d:f8:fa:51:b7:ec:cc:06:
+                    b1:08:3f:86:f8:76:a2:8d:67:74:9f:c6:1d:d6:b0:
+                    2c:88:2a:5d:36:0d:cc:a0:4e:54:bf:66:70:f5:71:
+                    46:a1:4f:c3:5b:c9:43:45:d6:e6:99:07:89:34:d6:
+                    2a:47:c0:65:90
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier:
+                E1:9F:20:4A:4B:B8:79:A3:1F:A8:5F:A0:D5:73:86:9E:00:9F:A1:23
+            X509v3 Authority Key Identifier:
+                75:BE:C4:77:AE:89:F6:44:37:7D:CF:B1:68:1F:1D:1A:EB:DC:34:59
+            Authority Information Access:
+                OCSP - URI:http://o.pki.goog/we2
+                CA Issuers - URI:http://i.pki.goog/we2.crt
+            X509v3 Subject Alternative Name:
+                DNS:*.google.com, DNS:*.appengine.google.com, DNS:*.bdn.dev, DNS:*.origin-test.bdn.dev, DNS:*.cloud.google.com, DNS:*.crowdsource.google.com, DNS:*.datacompute.google.com, DNS:*.google.ca, DNS:*.google.cl, DNS:*.google.co.in, DNS:*.google.co.jp, DNS:*.google.co.uk, DNS:*.google.com.ar, DNS:*.google.com.au, DNS:*.google.com.br, DNS:*.google.com.co, DNS:*.google.com.mx, DNS:*.google.com.tr, DNS:*.google.com.vn, DNS:*.google.de, DNS:*.google.es, DNS:*.google.fr, DNS:*.google.hu, DNS:*.google.it, DNS:*.google.nl, DNS:*.google.pl, DNS:*.google.pt, DNS:*.googleapis.cn, DNS:*.gstatic.cn, DNS:*.gstatic-cn.com, DNS:googlecnapps.cn, DNS:*.googlecnapps.cn, DNS:googleapps-cn.com, DNS:*.googleapps-cn.com, DNS:gkecnapps.cn, DNS:*.gkecnapps.cn, DNS:googledownloads.cn, DNS:*.googledownloads.cn, DNS:recaptcha.net.cn, DNS:*.recaptcha.net.cn, DNS:recaptcha-cn.net, DNS:*.recaptcha-cn.net, DNS:widevine.cn, DNS:*.widevine.cn, DNS:ampproject.org.cn, DNS:*.ampproject.org.cn, DNS:ampproject.net.cn, DNS:*.ampproject.net.cn, DNS:google-analytics-cn.com, DNS:*.google-analytics-cn.com, DNS:googleadservices-cn.com, DNS:*.googleadservices-cn.com, DNS:googlevads-cn.com, DNS:*.googlevads-cn.com, DNS:googleapis-cn.com, DNS:*.googleapis-cn.com, DNS:googleoptimize-cn.com, DNS:*.googleoptimize-cn.com, DNS:doubleclick-cn.net, DNS:*.doubleclick-cn.net, DNS:*.fls.doubleclick-cn.net, DNS:*.g.doubleclick-cn.net, DNS:doubleclick.cn, DNS:*.doubleclick.cn, DNS:*.fls.doubleclick.cn, DNS:*.g.doubleclick.cn, DNS:dartsearch-cn.net, DNS:*.dartsearch-cn.net, DNS:googletraveladservices-cn.com, DNS:*.googletraveladservices-cn.com, DNS:googletagservices-cn.com, DNS:*.googletagservices-cn.com, DNS:googletagmanager-cn.com, DNS:*.googletagmanager-cn.com, DNS:googlesyndication-cn.com, DNS:*.googlesyndication-cn.com, DNS:*.safeframe.googlesyndication-cn.com, DNS:app-measurement-cn.com, DNS:*.app-measurement-cn.com, DNS:gvt1-cn.com, DNS:*.gvt1-cn.com, DNS:gvt2-cn.com, DNS:*.gvt2-cn.com, DNS:2mdn-cn.net,DNS:*.2mdn-cn.net, DNS:googleflights-cn.net, DNS:*.googleflights-cn.net, DNS:admob-cn.com, DNS:*.admob-cn.com, DNS:*.gemini.cloud.google.com, DNS:googlesandbox-cn.com, DNS:*.googlesandbox-cn.com, DNS:*.safenup.googlesandbox-cn.com, DNS:*.gstatic.com, DNS:*.metric.gstatic.com, DNS:*.gvt1.com, DNS:*.gcpcdn.gvt1.com, DNS:*.gvt2.com, DNS:*.gcp.gvt2.com, DNS:*.url.google.com, DNS:*.youtube-nocookie.com, DNS:*.ytimg.com, DNS:ai.android, DNS:android.com, DNS:*.android.com, DNS:*.flash.android.com, DNS:g.cn, DNS:*.g.cn, DNS:g.co, DNS:*.g.co, DNS:goo.gl, DNS:www.goo.gl, DNS:google-analytics.com, DNS:*.google-analytics.com, DNS:google.com, DNS:googlecommerce.com, DNS:*.googlecommerce.com, DNS:ggpht.cn, DNS:*.ggpht.cn, DNS:urchin.com, DNS:*.urchin.com, DNS:youtu.be, DNS:youtube.com, DNS:*.youtube.com, DNS:music.youtube.com, DNS:*.music.youtube.com, DNS:youtubeeducation.com, DNS:*.youtubeeducation.com, DNS:youtubekids.com, DNS:*.youtubekids.com, DNS:yt.be, DNS:*.yt.be, DNS:android.clients.google.com, DNS:*.android.google.cn, DNS:*.chrome.google.cn, DNS:*.developers.google.cn, DNS:*.aistudio.google.com
+            X509v3 Certificate Policies:
+                Policy: 2.23.140.1.2.1
+            X509v3 CRL Distribution Points:
+                Full Name:
+                  URI:http://c.pki.goog/we2/yK5nPhtHKQs.crl
+
+            CT Precertificate SCTs:
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 96:97:64:BF:55:58:97:AD:F7:43:87:68:37:08:42:77:
+                                E9:F0:3A:D5:F6:A4:F3:36:6E:46:A4:3F:0F:CA:A9:C6
+                    Timestamp : Feb 23 19:20:02.069 2026 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:44:02:20:57:3A:A2:C6:DD:9C:1E:7B:D2:37:70:7F:
+                                B5:4D:14:C2:51:70:1D:82:11:50:24:6B:22:DB:E4:34:
+                                4E:4B:DE:CC:02:20:51:46:D6:D4:59:60:C3:3D:BE:EA:
+                                C1:8A:CE:6A:BC:88:09:FD:CD:B5:DA:D3:C2:8D:70:5B:
+                                16:43:A8:61:A4:80
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 49:9C:9B:69:DE:1D:7C:EC:FC:36:DE:CD:87:64:A6:B8:
+                                5B:AF:0A:87:80:19:D1:55:52:FB:E9:EB:29:DD:F8:C3
+                    Timestamp : Feb 23 19:20:02.028 2026 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:43:D3:DA:42:21:9F:AC:BD:0B:8B:5A:46:
+                                CC:D8:AA:9A:05:BD:00:50:9D:B6:71:CD:CB:56:87:28:
+                                71:31:28:09:02:21:00:9E:EB:9A:7D:B3:28:4D:58:BF:
+                                A7:F1:D3:AC:99:AA:41:C5:29:02:B6:51:EA:AA:F4:D4:
+                                0C:CF:62:C2:53:D1:E3
+    Signature Algorithm: ecdsa-with-SHA256
+    Signature Value:
+        30:45:02:20:29:d2:c2:3e:cb:a9:13:50:7f:54:b5:de:e9:69:
+        f4:4a:45:9e:74:bc:8a:ff:3f:b7:15:10:20:64:95:fa:24:89:
+        02:21:00:8d:6e:b2:ff:53:ef:ec:7e:2a:f5:20:3a:43:d0:89:
+        55:b6:9b:ba:76:0a:35:07:dc:94:70:ca:79:87:0c:d6:48
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> openssl s_client -connect github.com:443 -showcerts
+Connecting to 140.82.112.4
+CONNECTED(00000200)
+depth=2 C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication Root E46
+verify error:num=20:unable to get local issuer certificate
+verify return:1
+depth=1 C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication CA DV E36
+verify return:1
+depth=0 CN=github.com
+verify return:1
+---
+Certificate chain
+ 0 s:CN=github.com
+   i:C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication CA DV E36
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA256
+   v:NotBefore: Mar  6 00:00:00 2026 GMT; NotAfter: Jun  3 23:59:59 2026 GMT
+-----BEGIN CERTIFICATE-----
+MIID6zCCA5KgAwIBAgIQHcKJwera+wTp0c9T1dciUzAKBggqhkjOPQQDAjBgMQsw
+CQYDVQQGEwJHQjEYMBYGA1UEChMPU2VjdGlnbyBMaW1pdGVkMTcwNQYDVQQDEy5T
+ZWN0aWdvIFB1YmxpYyBTZXJ2ZXIgQXV0aGVudGljYXRpb24gQ0EgRFYgRTM2MB4X
+DTI2MDMwNjAwMDAwMFoXDTI2MDYwMzIzNTk1OVowFTETMBEGA1UEAxMKZ2l0aHVi
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD1Kffi++z3kbHMsxQPnF+t2
+Rp5FxtVsskEqMsia5XnrWkhNBclCLbJja3rCdcQZSel6JzMH9wgmZZ8SfDguVlqj
+ggJ3MIICczAfBgNVHSMEGDAWgBQXmagEwW/kLXCoChA9A9PpGrgmYzAdBgNVHQ4E
+FgQUCBOC0QS5fQBrorGBIoPHx9xPjNwwDgYDVR0PAQH/BAQDAgeAMAwGA1UdEwEB
+/wQCMAAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwSQYDVR0gBEIwQDA0BgsrBgEEAbIx
+AQICBzAlMCMGCCsGAQUFBwIBFhdodHRwczovL3NlY3RpZ28uY29tL0NQUzAIBgZn
+gQwBAgEwgYQGCCsGAQUFBwEBBHgwdjBPBggrBgEFBQcwAoZDaHR0cDovL2NydC5z
+ZWN0aWdvLmNvbS9TZWN0aWdvUHVibGljU2VydmVyQXV0aGVudGljYXRpb25DQURW
+RTM2LmNydDAjBggrBgEFBQcwAYYXaHR0cDovL29jc3Auc2VjdGlnby5jb20wggED
+BgorBgEEAdZ5AgQCBIH0BIHxAO8AdgAOV5S8866pPjMbLJkHs/eQ35vCPXEyJd0h
+qSWsYcVOIQAAAZzAgrmqAAAEAwBHMEUCIH/3H7cyzRR9nGWBnRchBzhuP2/3xe+I
+nenUGa7fw1nsAiEAkk+7dwWZeuBnn3AE70akZjc0hPFjW0Io4PfyeYeyZqoAdQAW
+gy2r8KklDw/wOqVF/8i/yCPQh0v2BCkn+OcfMxP1+gAAAZzAgrjLAAAEAwBGMEQC
+IAQ8uLtAPjjpu+9i2+q8I0oi4rtsYQp6O7H6xGmd5uuHAiAtmdU/0E7RDlnPOT7K
+c9ErIDvCCJsNAK/d6jZiZT04XzAlBgNVHREEHjAcggpnaXRodWIuY29tgg53d3cu
+Z2l0aHViLmNvbTAKBggqhkjOPQQDAgNHADBEAiAsxMOqDZ/76XvvnDWMHL2VLAuf
+9zWCT9sDfGGBWj6xDwIgWKRSMeJQGI6Q8kLHpLNGAhXKc0cnSy9lPxeZ5+Fe9LA=
+-----END CERTIFICATE-----
+ 1 s:C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication CA DV E36
+   i:C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication Root E46
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA384
+   v:NotBefore: Mar 22 00:00:00 2021 GMT; NotAfter: Mar 21 23:59:59 2036 GMT
+-----BEGIN CERTIFICATE-----
+MIIDXzCCAuagAwIBAgIQNuBZ7YiN1Xrt1XC2cn+b2jAKBggqhkjOPQQDAzBfMQsw
+CQYDVQQGEwJHQjEYMBYGA1UEChMPU2VjdGlnbyBMaW1pdGVkMTYwNAYDVQQDEy1T
+ZWN0aWdvIFB1YmxpYyBTZXJ2ZXIgQXV0aGVudGljYXRpb24gUm9vdCBFNDYwHhcN
+MjEwMzIyMDAwMDAwWhcNMzYwMzIxMjM1OTU5WjBgMQswCQYDVQQGEwJHQjEYMBYG
+A1UEChMPU2VjdGlnbyBMaW1pdGVkMTcwNQYDVQQDEy5TZWN0aWdvIFB1YmxpYyBT
+ZXJ2ZXIgQXV0aGVudGljYXRpb24gQ0EgRFYgRTM2MFkwEwYHKoZIzj0CAQYIKoZI
+zj0DAQcDQgAEaKGnbAUnBYljHDmn/yUhxe3TLxKYuyzc9VXoSaCEV5F73Fhfa/Si
+/RMsmwTFW3R9s7J6JpYZFmu4do3vk/Vgl6OCAYEwggF9MB8GA1UdIwQYMBaAFNEi
+2kxZ8UtfJjiqndbu6w3D+6lhMB0GA1UdDgQWBBQXmagEwW/kLXCoChA9A9PpGrgm
+YzAOBgNVHQ8BAf8EBAMCAYYwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHSUEFjAU
+BggrBgEFBQcDAQYIKwYBBQUHAwIwGwYDVR0gBBQwEjAGBgRVHSAAMAgGBmeBDAEC
+ATBUBgNVHR8ETTBLMEmgR6BFhkNodHRwOi8vY3JsLnNlY3RpZ28uY29tL1NlY3Rp
+Z29QdWJsaWNTZXJ2ZXJBdXRoZW50aWNhdGlvblJvb3RFNDYuY3JsMIGEBggrBgEF
+BQcBAQR4MHYwTwYIKwYBBQUHMAKGQ2h0dHA6Ly9jcnQuc2VjdGlnby5jb20vU2Vj
+dGlnb1B1YmxpY1NlcnZlckF1dGhlbnRpY2F0aW9uUm9vdEU0Ni5wN2MwIwYIKwYB
+BQUHMAGGF2h0dHA6Ly9vY3NwLnNlY3RpZ28uY29tMAoGCCqGSM49BAMDA2cAMGQC
+MFsKnBQDh64l+v+aUYWjDCJKQMxHUUGmcwAYDIjJ9pbRYItMCIx5xu0oUb6sIfTX
+qQIwPddcsDE4KdeLu1hJdpHgdLvsHAK3vygyLGujMU9xBJCDackRT93VHEE0gppg
+NqdV
+-----END CERTIFICATE-----
+ 2 s:C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication Root E46
+   i:C=US, ST=New Jersey, L=Jersey City, O=The USERTRUST Network, CN=USERTrust ECC Certification Authority
+   a:PKEY: EC, (secp384r1); sigalg: ecdsa-with-SHA384
+   v:NotBefore: Mar 22 00:00:00 2021 GMT; NotAfter: Jan 18 23:59:59 2038 GMT
+-----BEGIN CERTIFICATE-----
+MIIDRjCCAsugAwIBAgIQGp6v7G3o4ZtcGTFBto2Q3TAKBggqhkjOPQQDAzCBiDEL
+MAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0plcnNl
+eSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvcmsxLjAsBgNVBAMT
+JVVTRVJUcnVzdCBFQ0MgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMjEwMzIy
+MDAwMDAwWhcNMzgwMTE4MjM1OTU5WjBfMQswCQYDVQQGEwJHQjEYMBYGA1UEChMP
+U2VjdGlnbyBMaW1pdGVkMTYwNAYDVQQDEy1TZWN0aWdvIFB1YmxpYyBTZXJ2ZXIg
+QXV0aGVudGljYXRpb24gUm9vdCBFNDYwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAR2
++pmpbiDt+dd34wc7qNs9Xzjoq1WmVk/WSOrsfy2qw7LFeeyZYX8QeccCWvkEN/U0
+NSt3zn8gj1KjAIns1aeibVvjS5KToID1AZTc8GgHHs3u/iVStSBDHBv+6xnOQ6Oj
+ggEgMIIBHDAfBgNVHSMEGDAWgBQ64QmG1M8ZwpZ2dEl23OA1xmNjmjAdBgNVHQ4E
+FgQU0SLaTFnxS18mOKqd1u7rDcP7qWEwDgYDVR0PAQH/BAQDAgGGMA8GA1UdEwEB
+/wQFMAMBAf8wHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBEGA1UdIAQK
+MAgwBgYEVR0gADBQBgNVHR8ESTBHMEWgQ6BBhj9odHRwOi8vY3JsLnVzZXJ0cnVz
+dC5jb20vVVNFUlRydXN0RUNDQ2VydGlmaWNhdGlvbkF1dGhvcml0eS5jcmwwNQYI
+KwYBBQUHAQEEKTAnMCUGCCsGAQUFBzABhhlodHRwOi8vb2NzcC51c2VydHJ1c3Qu
+Y29tMAoGCCqGSM49BAMDA2kAMGYCMQCMCyBit99vX2ba6xEkDe+YO7vC0twjbkv9
+PKpqGGuZ61JZryjFsp+DFpEclCVy4noCMQCwvZDXD/m2Ko1HA5Bkmz7YQOFAiNDD
+49IWa2wdT7R3DtODaSXH/BiXv8fwB9su4tU=
+-----END CERTIFICATE-----
+---
+Server certificate
+subject=CN=github.com
+issuer=C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication CA DV E36
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ecdsa_secp256r1_sha256
+Peer Temp Key: X25519, 253 bits
+---
+SSL handshake has read 3085 bytes and written 1607 bytes
+Verification error: unable to get local issuer certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_128_GCM_SHA256
+Protocol: TLSv1.3
+Server public key is 256 bit
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 20 (unable to get local issuer certificate)
+---
+---
+Post-Handshake New Session Ticket arrived:
+SSL-Session:
+    Protocol  : TLSv1.3
+    Cipher    : TLS_AES_128_GCM_SHA256
+    Session-ID: 6C7F0343C023A73E8D566D98F8B3D4342825FAD6657D3211D040A8FDBF00AD56
+    Session-ID-ctx:
+    Resumption PSK: 0484D75D026DFAB12DCED31A954E4B34E7E949F1933A7F81D1E42495C49056BC
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - 19 84 4e ae b7 91 6c f0-79 20 86 79 94 25 99 25   ..N...l.y .y.%.%
+    0010 - 46 e2 ac 16 18 1a 81 ed-9b 73 f5 5f ae 85 b5 de   F........s._....
+
+    Start Time: 1774214811
+    Timeout   : 7200 (sec)
+    Verify return code: 20 (unable to get local issuer certificate)
+    Extended master secret: no
+    Max Early Data: 0
+---
+read R BLOCK
+---
+Post-Handshake New Session Ticket arrived:
+SSL-Session:
+    Protocol  : TLSv1.3
+    Cipher    : TLS_AES_128_GCM_SHA256
+    Session-ID: C51AC50F2FDA3B1B8BD48B51E200300A41C60F08A69FBE82F4E3D42DEA35C90D
+    Session-ID-ctx:
+    Resumption PSK: D8158797F8A93AC94754A723977B89341CBE982B7B443EF20323F1501315AE59
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - 8c 67 40 bb 96 6a dd 11-26 9e 0e e5 77 d6 f8 f1   .g@..j..&...w...
+    0010 - a4 83 e8 2f b0 c7 76 f1-62 01 b1 6f 95 07 8a a1   .../..v.b..o....
+
+    Start Time: 1774214811
+    Timeout   : 7200 (sec)
+    Verify return code: 20 (unable to get local issuer certificate)
+    Extended master secret: no
+    Max Early Data: 0
+---
+read R BLOCK
+closed
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> openssl x509 -in server.pem -text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            1d:c2:89:c1:ea:da:fb:04:e9:d1:cf:53:d5:d7:22:53
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication CA DV E36
+        Validity
+            Not Before: Mar  6 00:00:00 2026 GMT
+            Not After : Jun  3 23:59:59 2026 GMT
+        Subject: CN=github.com
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:3d:4a:7d:f8:be:fb:3d:e4:6c:73:2c:c5:03:e7:
+                    17:eb:76:46:9e:45:c6:d5:6c:b2:41:2a:32:c8:9a:
+                    e5:79:eb:5a:48:4d:05:c9:42:2d:b2:63:6b:7a:c2:
+                    75:c4:19:49:e9:7a:27:33:07:f7:08:26:65:9f:12:
+                    7c:38:2e:56:5a
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Authority Key Identifier:
+                17:99:A8:04:C1:6F:E4:2D:70:A8:0A:10:3D:03:D3:E9:1A:B8:26:63
+            X509v3 Subject Key Identifier:
+                08:13:82:D1:04:B9:7D:00:6B:A2:B1:81:22:83:C7:C7:DC:4F:8C:DC
+            X509v3 Key Usage: critical
+                Digital Signature
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication
+            X509v3 Certificate Policies:
+                Policy: 1.3.6.1.4.1.6449.1.2.2.7
+                  CPS: https://sectigo.com/CPS
+                Policy: 2.23.140.1.2.1
+            Authority Information Access:
+                CA Issuers - URI:http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVE36.crt
+                OCSP - URI:http://ocsp.sectigo.com
+            CT Precertificate SCTs:
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 0E:57:94:BC:F3:AE:A9:3E:33:1B:2C:99:07:B3:F7:90:
+                                DF:9B:C2:3D:71:32:25:DD:21:A9:25:AC:61:C5:4E:21
+                    Timestamp : Mar  6 00:18:38.634 2026 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:7F:F7:1F:B7:32:CD:14:7D:9C:65:81:9D:
+                                17:21:07:38:6E:3F:6F:F7:C5:EF:88:9D:E9:D4:19:AE:
+                                DF:C3:59:EC:02:21:00:92:4F:BB:77:05:99:7A:E0:67:
+                                9F:70:04:EF:46:A4:66:37:34:84:F1:63:5B:42:28:E0:
+                                F7:F2:79:87:B2:66:AA
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 16:83:2D:AB:F0:A9:25:0F:0F:F0:3A:A5:45:FF:C8:BF:
+                                C8:23:D0:87:4B:F6:04:29:27:F8:E7:1F:33:13:F5:FA
+                    Timestamp : Mar  6 00:18:38.411 2026 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:44:02:20:04:3C:B8:BB:40:3E:38:E9:BB:EF:62:DB:
+                                EA:BC:23:4A:22:E2:BB:6C:61:0A:7A:3B:B1:FA:C4:69:
+                                9D:E6:EB:87:02:20:2D:99:D5:3F:D0:4E:D1:0E:59:CF:
+                                39:3E:CA:73:D1:2B:20:3B:C2:08:9B:0D:00:AF:DD:EA:
+                                36:62:65:3D:38:5F
+            X509v3 Subject Alternative Name:
+                DNS:github.com, DNS:www.github.com
+    Signature Algorithm: ecdsa-with-SHA256
+    Signature Value:
+        30:44:02:20:2c:c4:c3:aa:0d:9f:fb:e9:7b:ef:9c:35:8c:1c:
+        bd:95:2c:0b:9f:f7:35:82:4f:db:03:7c:61:81:5a:3e:b1:0f:
+        02:20:58:a4:52:31:e2:50:18:8e:90:f2:42:c7:a4:b3:46:02:
+        15:ca:73:47:27:4b:2f:65:3f:17:99:e7:e1:5e:f4:b0
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> openssl x509 -in intermediate.pem -text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            36:e0:59:ed:88:8d:d5:7a:ed:d5:70:b6:72:7f:9b:da
+        Signature Algorithm: ecdsa-with-SHA384
+        Issuer: C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication Root E46
+        Validity
+            Not Before: Mar 22 00:00:00 2021 GMT
+            Not After : Mar 21 23:59:59 2036 GMT
+        Subject: C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication CA DV E36
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:68:a1:a7:6c:05:27:05:89:63:1c:39:a7:ff:25:
+                    21:c5:ed:d3:2f:12:98:bb:2c:dc:f5:55:e8:49:a0:
+                    84:57:91:7b:dc:58:5f:6b:f4:a2:fd:13:2c:9b:04:
+                    c5:5b:74:7d:b3:b2:7a:26:96:19:16:6b:b8:76:8d:
+                    ef:93:f5:60:97
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Authority Key Identifier:
+                D1:22:DA:4C:59:F1:4B:5F:26:38:AA:9D:D6:EE:EB:0D:C3:FB:A9:61
+            X509v3 Subject Key Identifier:
+                17:99:A8:04:C1:6F:E4:2D:70:A8:0A:10:3D:03:D3:E9:1A:B8:26:63
+            X509v3 Key Usage: critical
+                Digital Signature, Certificate Sign, CRL Sign
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:0
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Certificate Policies:
+                Policy: X509v3 Any Policy
+                Policy: 2.23.140.1.2.1
+            X509v3 CRL Distribution Points:
+                Full Name:
+                  URI:http://crl.sectigo.com/SectigoPublicServerAuthenticationRootE46.crl
+
+            Authority Information Access:
+                CA Issuers - URI:http://crt.sectigo.com/SectigoPublicServerAuthenticationRootE46.p7c
+                OCSP - URI:http://ocsp.sectigo.com
+    Signature Algorithm: ecdsa-with-SHA384
+    Signature Value:
+        30:64:02:30:5b:0a:9c:14:03:87:ae:25:fa:ff:9a:51:85:a3:
+        0c:22:4a:40:cc:47:51:41:a6:73:00:18:0c:88:c9:f6:96:d1:
+        60:8b:4c:08:8c:79:c6:ed:28:51:be:ac:21:f4:d7:a9:02:30:
+        3d:d7:5c:b0:31:38:29:d7:8b:bb:58:49:76:91:e0:74:bb:ec:
+        1c:02:b7:bf:28:32:2c:6b:a3:31:4f:71:04:90:83:69:c9:11:
+        4f:dd:d5:1c:41:34:82:9a:60:36:a7:55
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> openssl x509 -in root.pem -text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            1a:9e:af:ec:6d:e8:e1:9b:5c:19:31:41:b6:8d:90:dd
+        Signature Algorithm: ecdsa-with-SHA384
+        Issuer: C=US, ST=New Jersey, L=Jersey City, O=The USERTRUST Network, CN=USERTrust ECC Certification Authority
+        Validity
+            Not Before: Mar 22 00:00:00 2021 GMT
+            Not After : Jan 18 23:59:59 2038 GMT
+        Subject: C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication Root E46
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (384 bit)
+                pub:
+                    04:76:fa:99:a9:6e:20:ed:f9:d7:77:e3:07:3b:a8:
+                    db:3d:5f:38:e8:ab:55:a6:56:4f:d6:48:ea:ec:7f:
+                    2d:aa:c3:b2:c5:79:ec:99:61:7f:10:79:c7:02:5a:
+                    f9:04:37:f5:34:35:2b:77:ce:7f:20:8f:52:a3:00:
+                    89:ec:d5:a7:a2:6d:5b:e3:4b:92:93:a0:80:f5:01:
+                    94:dc:f0:68:07:1e:cd:ee:fe:25:52:b5:20:43:1c:
+                    1b:fe:eb:19:ce:43:a3
+                ASN1 OID: secp384r1
+                NIST CURVE: P-384
+        X509v3 extensions:
+            X509v3 Authority Key Identifier:
+                3A:E1:09:86:D4:CF:19:C2:96:76:74:49:76:DC:E0:35:C6:63:63:9A
+            X509v3 Subject Key Identifier:
+                D1:22:DA:4C:59:F1:4B:5F:26:38:AA:9D:D6:EE:EB:0D:C3:FB:A9:61
+            X509v3 Key Usage: critical
+                Digital Signature, Certificate Sign, CRL Sign
+            X509v3 Basic Constraints: critical
+                CA:TRUE
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Certificate Policies:
+                Policy: X509v3 Any Policy
+            X509v3 CRL Distribution Points:
+                Full Name:
+                  URI:http://crl.usertrust.com/USERTrustECCCertificationAuthority.crl
+
+            Authority Information Access:
+                OCSP - URI:http://ocsp.usertrust.com
+    Signature Algorithm: ecdsa-with-SHA384
+    Signature Value:
+        30:66:02:31:00:8c:0b:20:62:b7:df:6f:5f:66:da:eb:11:24:
+        0d:ef:98:3b:bb:c2:d2:dc:23:6e:4b:fd:3c:aa:6a:18:6b:99:
+        eb:52:59:af:28:c5:b2:9f:83:16:91:1c:94:25:72:e2:7a:02:
+        31:00:b0:bd:90:d7:0f:f9:b6:2a:8d:47:03:90:64:9b:3e:d8:
+        40:e1:40:88:d0:c3:e3:d2:16:6b:6c:1d:4f:b4:77:0e:d3:83:
+        69:25:c7:fc:18:97:bf:c7:f0:07:db:2e:e2:d5
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> openssl verify -CAfile root.pem -untrusted intermediate.pem server.pem
+C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication Root E46
+error 2 at 2 depth lookup: unable to get issuer certificate
+error server.pem: verification failed
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> Invoke-WebRequest -Uri "https://curl.se/ca/cacert.pem" -OutFile cacert.pem
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03> openssl verify -CAfile cacert.pem -untrusted intermediate.pem server.pem
+server.pem: OK
+PS C:\Users\nyasi\OneDrive\documents\documents\pki-portfolio-nyaisa-deverger\labs\submissions\week-03>  [CVI] Week 3 Lab Submissions— Nyasia Deverger
