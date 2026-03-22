@@ -1,5 +1,5 @@
 
-# Lab — [Lab Title]
+# Lab — Hashing Integrity
 
 ## Overview
 Briefly describe the purpose of this lab in your own words.
