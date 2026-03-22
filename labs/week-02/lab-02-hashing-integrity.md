@@ -39,6 +39,9 @@ message.sha256.txt message.txt message_tampered.sha256.txt
 
 If you include screenshots, store them in `assets/screenshots/` at the root of your repo and reference them here.
 
+https://github.com/ndeverger-code/pki-portfolio-nyaisa-deverger/blob/main/assets/screenshots/week-02/Creating%20a%20Hash%20File.png
+
+
 
 **Option B — GitHub Web (Easiest)**
 
