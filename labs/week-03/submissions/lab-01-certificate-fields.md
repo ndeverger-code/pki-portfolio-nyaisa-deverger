@@ -36,4 +36,7 @@ The structure of X.509 certificates and the fields within the certificate
 2. What domain or organization does it represent? CN=*.google.com 
 3. When does it expire? May 18 18:19:55 2026 GMT 
 4. What public key algorithm is used?  id-ecPublicKey 
-5. Why does the Issuer field matter in a PKI system? The issuer field is important because this establishes the chain of trust
+5. Why does the Issuer field matter in a PKI system?
+   
+The issuer field is important because this establishes the chain of trust and tells the browser which CA signed the certificate.
+The issuer field is also important in that is helps to prevent Man In The Middle Attacks. When the browser is checking the issuer, if the issuer is not trusted this will prevent a connection from happening and the trust chain is broken. 
