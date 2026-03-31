@@ -34,6 +34,6 @@ The structure of X.509 certificates and the fields within the certificate
 
 1. Who issued the certificate? Google Trust Services
 2. What domain or organization does it represent? CN=*.google.com 
-3. When does it expire? May 18th 
-4. What public key algorithm is used? SHA256
+3. When does it expire? May 18 18:19:55 2026 GMT 
+4. What public key algorithm is used?  id-ecPublicKey 
 5. Why does the Issuer field matter in a PKI system? The issuer field is important because this establishes the chain of trust
