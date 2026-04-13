@@ -1,0 +1,41 @@
+Lab 02 — Broken Certificate Chain Diagnosis Notes
+Week 6 · PKI Incident Diagnosis & Troubleshooting
+===================================================
+
+Step 1 — Retrieve the Certificate
+----------------------------------
+Q: How many certificates did the server send?
+A: 1 — the server only sent the leaf certificate (CN=*.badssl.com). No intermediate CA certificate was included.
+
+Q: What does the Verify return code say at the bottom of the output?
+A: Verify return code: 21 (unable to verify the first certificate)
+
+Step 2 — Parse the Leaf Certificate
+-------------------------------------
+Q: Is the leaf certificate itself valid (dates, subject, SAN)?
+A: Yes — Not Before: Mar 24 20:02:52 2026 GMT, Not After: Jun 22 20:02:51 2026 GMT. The certificate is currently within its validity period. Subject: CN=*.badssl.com. SANs: DNS:*.badssl.com, DNS:badssl.com.
+
+Q: What is the Issuer CN?
+A: R13 (full Issuer: C=US, O=Let's Encrypt, CN=R13)
+
+Q: Is there a CA Issuers URI in the Authority Information Access extension?
+A: Yes — CA Issuers - URI:http://r13.i.lencr.org/
+
+Step 3 — Validate the Chain (and Observe the Failure)
+------------------------------------------------------
+Q: What error did openssl verify leaf_cert.pem produce before you added the intermediate?
+A: error 20 at 0 depth lookup: unable to get local issuer certificate — OpenSSL could not find the intermediate CA needed to verify the leaf.
+
+Q: After adding the intermediate with -untrusted, did verification succeed?
+A: Yes — "leaf_cert.pem: OK"
+
+Q: What does the -untrusted flag mean in this context? Why is the intermediate "untrusted"?
+A: The -untrusted flag tells OpenSSL to use the provided certificate as a potential chain-building certificate, but not to trust it on its own. The intermediate is called "untrusted" because it is not in the system's trust store — it still needs to chain up to a trusted root CA to be valid. OpenSSL will use it to build the path from leaf to root, but the root must be trusted independently.
+
+Step 4 — Check Revocation and Trust
+-------------------------------------
+Q: Once the chain is repaired, is the root CA trusted by your system?
+A: Yes — when the intermediate (R13) was provided locally with -untrusted, openssl verify returned "OK," meaning the root CA (ISRG Root X1 / Let's Encrypt) is in the system trust store. The server still returns verify code 21 because it does not send the intermediate — that is a server configuration problem, not a trust store problem.
+
+Q: Is there any indication of a revocation issue?
+A: No — this is purely a missing intermediate chain issue. There is no indication of certificate revocation.
