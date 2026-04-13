@@ -1,0 +1,71 @@
+Lab 03 — Hostname and SAN Mismatch Diagnosis Notes
+Week 6 · PKI Incident Diagnosis & Troubleshooting
+===================================================
+
+Step 1 — Retrieve the Certificate
+----------------------------------
+Q: What does the Verify return code say?
+A: Verify return code: 0 (ok) — OpenSSL's s_client does not perform hostname validation by default. The chain itself is valid, but this does not mean the hostname matches the certificate. Hostname checking is a separate step the browser or application performs.
+
+Q: Did OpenSSL report a hostname mismatch error?
+A: No — s_client does not check the hostname against the SAN by default. The connection succeeded at the TLS level, but a browser or application performing hostname validation would reject it because wrong.host.badssl.com is a subdomain of badssl.com and the wildcard *.badssl.com only covers one level (e.g., anything.badssl.com), not wrong.host.badssl.com (which is two levels deep).
+
+Step 2 — Parse the Certificate
+-------------------------------
+Q: What is the Subject CN?
+A: CN=*.badssl.com — this is a wildcard certificate meant to cover subdomains of badssl.com.
+
+Q: What DNS entries are listed in the SAN?
+A: DNS:*.badssl.com, DNS:badssl.com — only two entries.
+
+Q: What hostname were you connecting to?
+A: wrong.host.badssl.com
+
+Q: Do any SAN entries match the hostname you connected to?
+A: No. The wildcard *.badssl.com only matches one level of subdomain (like www.badssl.com or test.badssl.com). wrong.host.badssl.com has two levels of subdomains (wrong.host), so the wildcard doesn't cover it. And badssl.com is an exact match that obviously doesn't match either.
+
+Q: Why does the SAN matter more than the Subject CN for hostname validation?
+A: Modern browsers and TLS clients use the SAN extension (not the Subject CN) to verify hostnames. If a SAN is present, the CN is basically ignored for hostname matching. So even though the CN says *.badssl.com, what really matters is what's listed in the SAN field.
+
+Step 3 — Validate the Chain
+-----------------------------
+Q: Is the certificate chain structurally complete?
+A: Yes. The s_client output from Step 1 showed Verify return code: 0 (ok) and the server sent 2 certificates — the leaf (CN=*.badssl.com) and the intermediate (Let's Encrypt R13). The chain is complete.
+
+Q: Are there any chain-related errors separate from the SAN mismatch?
+A: No chain-related errors. Running "openssl verify mismatch_cert.pem" locally gave error 20 (unable to get local issuer certificate), but that's just because the saved PEM only has the leaf cert without the intermediate bundled in. The actual server-side chain is fine. The only real issue here is the hostname/SAN mismatch — not a trust or chain problem.
+
+Step 4 — Check Revocation and Trust
+-------------------------------------
+Q: Is there an OCSP URL present?
+A: No. Grepping for "OCSP" in the certificate text returned nothing. Let's Encrypt discontinued OCSP support, so this cert has no OCSP responder URL in its Authority Information Access extension.
+
+Q: Is revocation relevant to this failure? Why or why not?
+A: No — revocation is not relevant here at all. The certificate isn't revoked; the failure is purely a hostname mismatch. The hostname wrong.host.badssl.com doesn't match any SAN entry (*.badssl.com or badssl.com). Checking revocation status wouldn't change anything about this diagnosis.
+
+Q: Is the root CA trusted by your system?
+A: Yes. The s_client output from Step 1 showed Verify return code: 0 (ok), which means the chain validated all the way up to a trusted root (ISRG Root X1). The local "openssl verify" failed with error 20 only because the saved PEM doesn't include the intermediate — not a trust store issue.
+
+Q: Why is a DNS workaround (CNAME) not the correct fix for a SAN mismatch?
+A: A CNAME just maps one hostname to another at the DNS level — it doesn't change what's in the certificate's SAN. Even if you CNAME'd wrong.host.badssl.com to something else, the TLS client still checks the original hostname against the cert's SAN entries. The real fix is to get a new certificate that includes the correct hostname in the SAN, or use a hostname that already matches the cert.
+
+The DNS Alias Question — Why a CNAME Would Not Work
+-----------------------------------------------------
+Scenario: Someone on the Metro General IT team suggests adding a CNAME so that
+staff.metrogeneral.org points back to scheduling.metrogeneral.org instead of
+getting a new certificate.
+
+Q: What does the browser check when validating a TLS certificate?
+A: The browser checks the hostname in the URL bar against the DNS entries listed in the certificate's SAN extension. If none of the SAN entries match the hostname, the browser rejects the connection with a certificate error.
+
+Q: Does a CNAME change what hostname the browser thinks it is connecting to?
+A: No. A CNAME only affects DNS resolution (which IP address to connect to). The browser still thinks it's connecting to the hostname the user typed in the URL bar. The CNAME is invisible to the TLS handshake.
+
+Q: If the browser resolves staff.metrogeneral.org via a CNAME to scheduling.metrogeneral.org, which hostname does it validate the certificate against?
+A: staff.metrogeneral.org — the original hostname from the URL bar. The browser doesn't care that DNS resolved it through a CNAME to scheduling.metrogeneral.org under the hood. It still checks the cert against what the user typed.
+
+Q: Does the existing certificate's SAN include staff.metrogeneral.org?
+A: No. The cert's SAN only lists scheduling.metrogeneral.org (and in our lab simulation, *.badssl.com and badssl.com). Since staff.metrogeneral.org isn't in the SAN, the browser will still reject the connection — even with the CNAME in place.
+
+Q: Bottom line for a non-technical manager?
+A: A CNAME is like forwarding mail from one address to another — the letter still arrives, but the name on the envelope doesn't change. The security certificate checks the "name on the envelope" (the hostname), not the forwarding address. So even with the CNAME, the browser still sees staff.metrogeneral.org, the certificate still doesn't list that name, and users still get an error. The only real fix is to issue a new certificate that includes staff.metrogeneral.org in its approved hostname list.
