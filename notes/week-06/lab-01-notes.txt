@@ -1,0 +1,52 @@
+Lab 01 — Expired Certificate Diagnosis Notes
+Week 6 · PKI Incident Diagnosis & Troubleshooting
+=================================================
+
+Step 1 — Retrieve the Certificate
+----------------------------------
+Q: Did the command return a certificate? (yes/no)
+A: Yes — the command completed successfully (exit code 0) and generated expired_cert.pem.
+
+Q: Did OpenSSL report an error during the connection? What was it?
+A: Yes — OpenSSL reports a certificate verify error due to the expired certificate (error 10: certificate has expired). This is expected. The stderr output was suppressed with 2>/dev/null, but the certificate was still retrieved successfully.
+
+Step 2 — Parse the Certificate
+-------------------------------
+Q: What are the Not Before and Not After dates?
+A: Not Before: Apr  9 00:00:00 2015 GMT
+   Not After:  Apr 12 23:59:59 2015 GMT
+   (The certificate was only valid for 3 days.)
+
+Q: Is the certificate currently within its validity period?
+A: No — the certificate expired on April 12, 2015, over 11 years ago.
+
+Q: Who is the Subject (the entity the certificate was issued to)?
+A: OU=Domain Control Validated, OU=PositiveSSL Wildcard, CN=*.badssl.com
+
+Q: Who is the Issuer?
+A: C=GB, ST=Greater Manchester, L=Salford, O=COMODO CA Limited, CN=COMODO RSA Domain Validation Secure Server CA
+
+Step 3 — Validate the Chain
+-----------------------------
+Q: How many certificates are in the chain?
+A: 3 — there are three -----BEGIN CERTIFICATE----- blocks in the output.
+
+Q: Is there an intermediate CA present?
+A: Yes — COMODO RSA Domain Validation Secure Server CA is the intermediate CA (certificate 1 in the chain).
+
+Q: Does the chain terminate at a trusted root?
+A: Yes — the chain terminates at COMODO RSA Certification Authority, cross-signed by AddTrust External CA Root.
+
+Q: Is the certificate chain structurally complete — leaf → intermediate → root?
+A: Yes — leaf (*.badssl.com) → intermediate (COMODO RSA Domain Validation Secure Server CA) → COMODO RSA Certification Authority (cross-signed by AddTrust External CA Root).
+
+Q: Any chain-related errors separate from the expiration failure?
+A: No — the only verification error was "certificate has expired" (verify return code: 10). No chain-related errors.
+
+Step 4 — Check Revocation and Trust
+-------------------------------------
+Q: Is an OCSP URL present in the certificate?
+A: Yes — OCSP - URI:http://ocsp.comodoca.com
+
+Q: For an expired certificate, is revocation checking relevant to the remediation? Why or why not?
+A: No — revocation checking is not relevant to the remediation. An expired certificate is already rejected by clients before revocation status is ever checked. Expiration is evaluated first in the TLS handshake; a certificate that has passed its Not After date will fail validation regardless of its revocation status. The fix is to renew or replace the certificate, not to revoke it.
