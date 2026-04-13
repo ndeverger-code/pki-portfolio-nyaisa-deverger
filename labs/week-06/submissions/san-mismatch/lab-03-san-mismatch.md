@@ -138,7 +138,7 @@ The grep returned no results, confirming the absence of an OCSP responder URL. T
 
 ## Reflection
 
-This lab reinforced an important distinction between chain validation and hostname validation — two checks that are often conflated but operate independently. The fact that `s_client` returned `Verify return code: 0 (ok)` while a browser would reject the same connection highlights that chain integrity and hostname authorization are separate layers of the TLS trust model. I found the CNAME discussion particularly valuable because it required thinking through the interaction between DNS resolution and TLS validation. The intuition that a CNAME should work is understandable, but once you trace the flow — the browser validates against the URL bar hostname, not the resolved target — it becomes clear why DNS-level redirects cannot substitute for proper SAN coverage. Understanding that separation is something I think will be relevant well beyond this lab.
+This lab showed me that just because a certificate is valid doesn’t mean it works for every website name. The browser checks if the name matches what’s in the certificate, and if it doesn’t, you get an error. I also learned that using a CNAME in DNS doesn’t fix this—what matters is the name in the certificate. I’ll remember to check the SAN next time there’s a certificate problem.
 
 ---
 
