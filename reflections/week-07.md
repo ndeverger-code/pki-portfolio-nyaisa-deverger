@@ -44,16 +44,3 @@ front of it. This week I learned how to figure out where that checkpoint actuall
 
 *CVI PKI Career Pathway — Foundations Phase*
 
-
----
-
-## Professional Growth Check
-
-- [x] I documented my work clearly and in my own words
-- [x] I used structured formatting in my submission files
-- [x] My commit message was meaningful and descriptive
-
----
-
-*CVI PKI Career Pathway — Foundations Phase*
-
