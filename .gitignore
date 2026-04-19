@@ -4,3 +4,4 @@ cert_pubkey.pem
 key_pubkey.pem
 revocation/lab-02-revocation-status.md
 labs/week-05/submissions/revocation-status/fullchain.txt
+labs/week-07/submissions/enterprise-analysis/full_chain_output.txt
