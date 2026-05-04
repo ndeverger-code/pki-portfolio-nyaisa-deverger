@@ -15,9 +15,8 @@ Your final submission should build on those entries — not repeat them.
 
 Choose your submission format:
 - [x] Written reflection (500–800 words)
-- [ ] Video explanation (5–7 minutes) — paste your link below
 
-**Video link (if applicable):**
+**Video link (if applicable):** N/A
 
 ---
 
