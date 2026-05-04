@@ -226,7 +226,9 @@ Three VMs make up this lab. DC01 (IP 192.168.10.10) is the domain controller —
 
 ### 2. CA Hierarchy
 
-There are two CAs. CVI Root CA is the top of the chain — it signed its own certificate and is kept offline so its key can never be stolen. CVI Issuing CA 1 runs on PKI-SRV01 and is the one that actually hands out certificates. CVI Root CA signed CVI Issuing CA 1's certificate, which is what gives it the authority to issue.
+There are two CAs in this lab. CVI Root CA is at the top — when I ran `certutil` against the root store, the Subject and Issuer were the same name, which means it signed its own certificate. That makes it self-signed, and it is the starting point that every device in the domain trusts. CVI Issuing CA 1 runs on PKI-SRV01 and is the one that actually issues certificates to users, computers, and services. The reason it is trusted is because CVI Root CA signed its certificate — so when a device gets a certificate from CVI Issuing CA 1, it can trace it back up to the root, which it already trusts. That chain is the whole point.
+
+CVI Root CA is kept offline, meaning the VM is powered off and only turned on when something specific needs to be signed — like when we set up CVI Issuing CA 1. The reason for that is the root's private key. If someone got hold of it, they could create fake CAs that the whole domain would trust, because everything chains up to the root. The worst part is that you cannot just revoke the root — if it gets compromised, you basically have to tear down the whole PKI and start over. Keeping it offline means it is never sitting there on the network where it could be attacked. The downside is that it cannot do anything automatically, but since the root only needs to sign a new CA every few years, that trade-off makes sense.
 
 ### 3. Certificate Templates
 
