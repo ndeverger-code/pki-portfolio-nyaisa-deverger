@@ -17,6 +17,7 @@
 | Revoked Certificates | Empty — no certificates have been revoked yet |
 | Issued Certificates | Empty — no certificates have been issued yet |
 | Pending Requests | Empty — no pending certificate requests |
+| Failed Requests | Empty — no failed certificate requests |
 | Certificate Templates | 11 templates loaded after DC01 came online. Templates visible: Directory Email Replication, Domain Controller Authentication, Kerberos Authentication, EFS Recovery Agent, Basic EFS, Domain Controller, Web Server, Computer, User, Subordinate Certification Authority, Administrator |
 
 ### CA Properties — Key Settings
@@ -148,8 +149,8 @@ CertUtil: -store command completed successfully.
 The enterprise Intermediate CA store contains one certificate: CVI Issuing CA 1. The Issuer is
 CVI Root CA, confirming that the Root CA signed this certificate and authorized it to issue
 certificates to end entities. The Subject is CVI Issuing CA 1 — this is the CA actively running
-on PKI-SRV01. The certificate is valid for one year (April 25, 2026 through April 25, 2027),
- The SHA1 thumbprint is 5137a597de2c3085ec5816c7f11edc18cfcdbaf8.
+on PKI-SRV01. The certificate is valid for one year (April 25, 2026 through April 25, 2027).
+The SHA1 thumbprint is 5137a597de2c3085ec5816c7f11edc18cfcdbaf8.
 The template used was SubCA (Subordinate Certification Authority), and the key is stored using
 the Microsoft Software Key Storage Provider on this server.
 ```
