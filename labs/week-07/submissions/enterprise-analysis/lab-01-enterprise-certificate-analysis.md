@@ -2,21 +2,27 @@
 
 ## Overview
 
-The goal of this lab was to analyze how a real enterprise company uses TLS certificates in production. I chose servicenow.com as my target and investigated its certificate fields, chain of trust, TLS configuration, and CA history. 
+The goal of this lab was to analyze how a real enterprise company uses TLS certificates in production. I chose servicenow.com as my target and investigated its certificate fields, chain of trust, TLS configuration, and CA history.
 
 ---
 
-## Steps Performed
+## 1. Certificate Summary
 
-1. Connected to `servicenow.com` on port 443 using OpenSSL in Git Bash to capture the full certificate chain output
-2. Extracted the leaf certificate from the chain output and inspected its fields — CN, SANs, issuer, validity dates, and certificate type
-3. Used `curl -sI` to pull HTTP response headers and look for infrastructure clues like CDN or load balancer indicators
-4. Ran the domain through SSL Labs to get a full TLS configuration grade and check for HSTS, protocol support, and OCSP Must-Staple
-5. Searched crt.sh (Certificate Transparency logs) to view CA history, certificate count, and issuance patterns over time
+**Target domain:** servicenow.com  
+**Certificate type:** Domain Validated (DV)  
+**Evidence for DV:** The `O` (Organization) field is completely missing from the certificate. DV certificates only verify that you own the domain — they do not check who the company is — so there is no company name anywhere in the Subject. That missing `O` field is how you know it is a DV cert.
 
----
-
-## Results
+**Leaf certificate fields:**
+| Field | Value |
+|---|---|
+| CN | servicenow.com |
+| O | (not present — DV) |
+| SANs | DNS:servicenow.com, DNS:www.servicenow.com |
+| Issuer | C=US, O=Amazon, CN=Amazon RSA 2048 M04 |
+| Valid From | May 21 00:00:00 2025 GMT |
+| Valid Until | Jun 19 23:59:59 2026 GMT |
+| Days Remaining | ~62 days (as of April 19, 2026) |
+| Key Algorithm | RSA 2048 |
 
 **Certificate chain (OpenSSL):**
 ```
@@ -26,56 +32,76 @@ depth=0  CN=servicenow.com
 Verify return code: 0 (ok)
 ```
 
-**Leaf certificate fields:**
-- **CN:** servicenow.com
-- **O:** (not present — DV certificate)
-- **SANs:** DNS:servicenow.com, DNS:www.servicenow.com
-- **Issuer:** C=US, O=Amazon, CN=Amazon RSA 2048 M04
-- **Valid From:** May 21 00:00:00 2025 GMT
-- **Valid Until:** Jun 19 23:59:59 2026 GMT
-- **Days Remaining:** ~62 days (as of April 19, 2026)
+---
 
-**curl headers:**
+## 2. Chain Analysis
+
+The certificate chain has three levels:
+
+- **Root CA:** Amazon Root CA 1 — this is the top-level certificate that browsers and operating systems already trust
+- **Intermediate CA:** Amazon RSA 2048 M04 — sits in the middle and was used to sign the leaf certificate
+- **Leaf:** servicenow.com — the actual certificate the server shows to visitors
+
+The `Verify return code: 0 (ok)` means the whole chain checked out — each certificate was properly signed by the one above it, and the root is trusted. No errors, no missing pieces.
+
+---
+
+## 3. Termination Analysis
+
+**curl header result:**
 ```
 Server: Apache
 ```
-No CDN headers (no `cf-ray`, `x-cache`, `x-amz`) returned.
+No CDN-specific headers present (`cf-ray`, `x-cache`, `x-amz-cf-id`).
 
-**SSL Labs results:**
-- Grade: **A-**
-- TLS 1.0 / 1.1: Disabled
-- TLS 1.2: Enabled
-- HSTS: Yes, long duration
-- OCSP Must-Staple: No
+**Conclusion: TLS terminates at the AWS load balancer, not at Apache.**
 
-**crt.sh (CT logs):**
-- Total certificates issued: ~90 since 2013
-- Active CAs: Entrust (2013–2024), Amazon ACM (2023–present, apex domain), DigiCert (2025–present, www subdomain)
-- Typical validity: 12–13 months
-- Notable SAN found in CT history: `prodwaf-www.servicenow.com`
+The certificate is issued by Amazon ACM (AWS Certificate Manager), which only works with AWS load balancers — ACM does not let you export the private key to put on your own server. That means the encrypted connection ends at the load balancer, which then forwards the unencrypted traffic to the Apache server sitting behind it. The `Server: Apache` header tells you Apache is back there, but Apache never actually handled the TLS part. This is a very common setup for large websites running on AWS.
 
 ---
 
-## Key Findings
+## 4. TLS Configuration
 
-- The cert is issued by Amazon ACM, so TLS ends at an AWS load balancer, not the Apache server
-- It's a DV cert — no company name in the certificate, just the domain
-- Only 2 SANs, no wildcards — covers exactly `servicenow.com` and `www.servicenow.com`
-- HSTS is enabled, so browsers always use HTTPS automatically
-- CT logs show they switched from Entrust to Amazon ACM around 2023
-- A `prodwaf-www.servicenow.com` SAN in CT history hints at a WAF sitting in front of the web server
+**SSL Labs grade: A-**
+
+| Protocol | Status |
+|---|---|
+| TLS 1.3 | Yes — supported |
+| TLS 1.2 | Yes — enabled |
+| TLS 1.1 | No — disabled |
+| TLS 1.0 | No — disabled |
+
+**Additional settings:**
+- **HSTS:** Yes — long-duration `max-age` set; browsers enforce HTTPS-only automatically
+- **OCSP Stapling:** No — the server does not staple OCSP responses; clients must perform live OCSP lookups to check revocation status
+- **OCSP Must-Staple extension:** Not set in the certificate
+
+**A- grade explanation:** The A- instead of A+ comes down to HSTS not being on the browser preload list. HSTS already protects people who have visited before, but someone visiting for the very first time on a new browser does not get that protection until after their first connection. Getting added to the preload list would fix that and push the grade to A+.
 
 ---
 
-## Explanation
+## 5. CT Log Analysis
 
-The ACM issuer tells you where TLS ends — at the AWS load balancer, before traffic reaches Apache. That's normal for cloud deployments.
+**Source:** crt.sh (Certificate Transparency log aggregator)
 
-DV is fine at the edge because the cert just needs to encrypt the connection. HSTS makes sure browsers never try HTTP in the first place.
+| Finding | Detail |
+|---|---|
+| Total certificates issued | ~90 since 2013 |
+| Typical validity period | 12–13 months |
+| CA from 2013–2022 | Entrust |
+| CA from 2023–present (apex) | Amazon ACM |
+| CA from 2025–present (www) | DigiCert |
+| Notable historical SAN | `prodwaf-www.servicenow.com` |
 
-CT logs showed the company moved to ACM around 2023, which means they automated certificate renewal through AWS. The WAF subdomain showing up in older CT records is an example of how CT logs can leak infrastructure details unintentionally.
+**CA migration:** CT logs show that ServiceNow used Entrust from 2013 up through around 2022, then switched to Amazon ACM starting in 2023. Moving to ACM means certificate renewals happen automatically through AWS — no one has to manually track when certs expire and remember to replace them.
 
-The clean verify return code means the chain is valid and any client would trust the certificate with no warnings.
+**Infrastructure leakage via SAN:** One of the older certificates in CT logs had a SAN called `prodwaf-www.servicenow.com`. That name gives away that there is a Web Application Firewall (WAF) sitting in front of the web server. ServiceNow never publicly announced that, but because every certificate gets logged in CT, that internal hostname became publicly visible. This is actually one of the main reasons security teams watch CT logs — details like this show up even when a company does not intend to share them.
+
+---
+
+## 6. Architecture Assessment
+
+ServiceNow handles its certificates through AWS, which means renewals happen automatically and there is no risk of someone forgetting to renew a cert and taking down the site. TLS ends at the load balancer before requests ever reach the Apache server behind it, which is a clean and common setup for large cloud-hosted applications. The WAF layer showing up in old CT log records tells you there is an extra security filter in front of the web server — ServiceNow did not advertise that, but CT logs made it visible anyway. The A- grade from SSL Labs shows the setup works well and is properly secured, but they have not done every possible hardening step, like HSTS preloading or OCSP stapling — which is a reasonable choice when you are managing certificates at this scale and want to keep things simple.
 
 ---
 
