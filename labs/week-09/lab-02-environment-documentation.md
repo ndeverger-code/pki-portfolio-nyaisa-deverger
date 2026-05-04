@@ -253,4 +253,4 @@ I found it interesting that `certtmpl.msc` would not open on DC01, even though t
 - [x] Part C: Sites and Services server noted
 - [x] Part C: certtmpl.msc confirmed templates in AD
 - [x] Part D: All five summary areas completed in own words
-- [ ] File committed to portfolio repo at `labs/week-09/lab-02-environment-documentation.md`
+- [x] File committed to portfolio repo at `labs/week-09/lab-02-environment-documentation.md`

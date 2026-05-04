@@ -163,4 +163,4 @@ require administrative access, which makes sense given the sensitive data they c
 - [x] All command outputs pasted
 - [x] Reflection section filled in
 - [x] File saved as `lab-01-environment-verification.md`
-- [ ] File committed to my portfolio repo under `labs/week-09/`
+- [x] File committed to my portfolio repo under `labs/week-09/`
