@@ -85,13 +85,7 @@ The encryption that comes after is real and important. But it only matters becau
 
 *Reflect on the PKI Career Landscape from Week 7. What roles interest you? What in Phase 1 felt most relevant to where you want to go? What do you want to understand better — in Phase 2 or beyond?*
 
-The roles that interest me most are PKI Engineer and Certificate Lifecycle Management — the operational side of PKI where you're responsible for keeping an organization's certificate infrastructure healthy and visible. Week 2's question about key management in large enterprises hit close to home: in my current role I've seen firsthand how a certificate renewal process can be technically functional but operationally fragile. Phase 1 gave me the vocabulary and the technical depth to understand why those gaps exist and what a well-structured process would look like.
-
-The troubleshooting labs in Week 6 felt most directly applicable to where I want to go. Real PKI incidents are rarely about one broken certificate in isolation — they're about figuring out which layer of the system failed and why, under time pressure, without jumping to the wrong fix. That diagnostic discipline is the skill I want to keep building.
-
-For Phase 2, I want to understand OCSP stapling more concretely. I know the concept — the server pre-fetches and serves the OCSP response so the client doesn't have to query the CA directly — but I want to see how it's configured and verified in practice. I'm also curious about private CAs and enterprise PKI architecture: how organizations stand up their own root and intermediate CAs, how they manage revocation internally, and how that infrastructure connects to the public-facing certificates I've been working with throughout Phase 1.
-
-The question I want to keep sitting with: what does good certificate lifecycle management actually look like at scale? Phase 1 gave me the foundation to start answering that.
+PKI Engineer is the role that interests me most. It sits at the intersection of everything Phase 1 covered — certificate structure, chain of trust, lifecycle management, and incident diagnosis — and it maps directly to gaps I've already seen in my current role. Phase 1 gave me the vocabulary and technical depth to understand why certificate processes break down at scale and what a well-structured operation would look like. For Phase 2, I want to go deeper on private CA architecture and OCSP stapling to build out the engineering side of that picture.
 
 ---
 
@@ -102,7 +96,9 @@ The question I want to keep sitting with: what does good certificate lifecycle m
 - A complete certificate lifecycle from key generation through revocation
 - A PKI trust hierarchy with root CA, intermediate CA, and leaf certificate annotated
 
-**Visual file:** `reflections/visual/phase1-diagram.[ext]`
+**Visual file:** [reflections/visual/phase1-diagram.png](visual/phase1-diagram.png)
+
+![PKI Certificate Lifecycle Diagram](visual/phase1-diagram.png)
 
 *Brief description of what your diagram shows:*
 
