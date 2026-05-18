@@ -1,7 +1,7 @@
 # Lab 02: Issue Your First Certificate from a Custom Template
 
-**Student Name:**  
-**Date Completed:**  
+**Student Name:** Nyaisa Deverger
+**Date Completed:** May 17, 2026
 **Phase:** 2 | **Week:** 10  
 **Submission Path:** `labs/week-10/lab-02-first-issuance.md`
 
@@ -16,13 +16,13 @@ Get-Service -Name CertSvc
 certutil -ping
 ```
 
-**CertSvc status:** ________________  
+**CertSvc status:** Running  
 **CA responding (certutil -ping):**
-- [ ] Yes
+- [x] Yes
 - [ ] No — action taken:
 
 **CVI-WebServer template visible in certtmpl.msc (from Lab 01):**
-- [ ] Yes
+- [x] Yes
 - [ ] No — complete Lab 01 before proceeding
 
 ---
@@ -39,17 +39,22 @@ The CVI-WebServer template exists in Active Directory but is not yet published t
 4. Clicked **OK**
 
 **CVI-WebServer template now visible under Certificate Templates node:**
-- [ ] Yes
+- [x] Yes
 - [ ] No — describe what happened:
 
 ```
-(describe here)
+N/A
 ```
 
 **Screenshot or description of the Certificate Templates node showing CVI-WebServer:**
 
 ```
-(describe what you see in certsrv.msc)
+certsrv.msc → CVI Issuing CA 1 → Certificate Templates node shows CVI-WebServer listed
+at the top of the template list with Intended Purpose: Server Authentication.
+Other templates visible include Directory Email Replication, Domain Controller
+Authentication, Kerberos Authentication, EFS Recovery Agent, Basic EFS, Domain
+Controller, Web Server, Computer, User, Subordinate Certification Authority,
+and Administrator.
 ```
 
 ---
@@ -60,7 +65,8 @@ The CVI-WebServer template exists in Active Directory but is not yet published t
 
 1. Opened **mmc.exe** → **File → Add/Remove Snap-in**
 2. Added **Certificates** snap-in
-3. Selected: ________________ (Computer account / My user account / Service account)
+3. Selected: **Computer account** (Local computer)
+   - *Note: Initially selected "My user account" — CVI-WebServer template did not appear. Had to re-open MMC and select Computer account instead. The template's security permissions grant enrollment to computer accounts, not user accounts.*
 4. Navigated to **Personal → Certificates**
 5. Right-clicked → **All Tasks → Request New Certificate**
 6. Proceeded through the Certificate Enrollment wizard
@@ -68,32 +74,39 @@ The CVI-WebServer template exists in Active Directory but is not yet published t
 **Certificate Enrollment wizard — enrollment policy selected:**
 
 ```
-(Active Directory Enrollment Policy or other?)
+Active Directory Enrollment Policy
 ```
 
 **Templates shown in the wizard:**
 
 ```
-(list all templates visible)
+- Computer          — STATUS: Available   (auto-selected)
+- CVI-WebServer     — STATUS: Available   (auto-selected)
+- Administrator     — STATUS: Unavailable (insufficient permissions)
+- Authenticated Session — STATUS: Unavailable (insufficient permissions)
+(additional templates hidden; "Show all templates" checkbox was checked)
 ```
 
 **CVI-WebServer template visible:**
-- [ ] Yes
+- [x] Yes
 - [ ] No — troubleshooting steps taken:
 
 **Subject name entered (if prompted):**
 
 ```
-(what subject name did you provide? or was it auto-populated?)
+Subject name was auto-populated from Active Directory — no manual entry required.
+The CA built the subject from the computer object: PKI-SRV01.corp.cvilab.local
 ```
 
 **Certificate request submitted:**
-- [ ] Yes — certificate issued immediately
+- [x] Yes — certificate issued immediately
 - [ ] Yes — certificate pending manager approval
 - [ ] No — error encountered:
 
 ```
-(paste error here if applicable)
+N/A — certificate issued without delay. PKI-SRV01.corp.cvilab.local now appears
+in Personal → Certificates, issued by CVI Issuing CA 1, Certificate Template: CVI-WebServer,
+Intended Purpose: Server Authentication. Expiration: 4/25/2027.
 ```
 
 ---
@@ -108,22 +121,22 @@ Navigate to the Personal → Certificates store and double-click the issued cert
 
 | Field | Value |
 |-------|-------|
-| Issued to | |
-| Issued by | |
-| Valid from | |
-| Valid to | |
+| Issued to | PKI-SRV01.corp.cvilab.local |
+| Issued by | CVI Issuing CA 1 |
+| Valid from | 5/17/2026 |
+| Valid to | 4/25/2027 |
 
 **Details tab — record the following fields:**
 
 | Field | Value |
 |-------|-------|
-| Serial Number | |
-| Signature Algorithm | |
-| Subject | |
-| Key Usage | |
-| Enhanced Key Usage | |
-| Subject Alternative Name (if present) | |
-| Thumbprint | |
+| Serial Number | 4400000004de07084d1f319d8e000000000004 |
+| Signature Algorithm | sha256RSA |
+| Subject | PKI-SRV01.corp.cvilab.local |
+| Key Usage | Digital Signature, Key Encipherment (a0) |
+| Enhanced Key Usage | Server Authentication (1.3.6.1.5.5.7.3.1) |
+| Subject Alternative Name (if present) | Other Name: Principal Name=PKI-SRV01$@corp.cvilab.local; DNS Name=PKI-SRV01.corp.cvilab.local |
+| Thumbprint | 56195db06f786ce07a5eb9f52e83b92531d522fb |
 
 ---
 
@@ -140,7 +153,22 @@ Replace `<thumbprint>` with the thumbprint value (no spaces).
 **Full certutil output:**
 
 ```
-(paste output here)
+My "Personal"
+================ Certificate 0 ================
+Serial Number: 4400000004de07084d1f319d8e000000000004
+Issuer: CN=CVI Issuing CA 1, DC=corp, DC=cvilab, DC=local
+ NotBefore: 5/17/2026 8:44 PM
+ NotAfter: 4/25/2027 7:36 PM
+Subject: CN=PKI-SRV01.corp.cvilab.local
+Non-root Certificate
+Template: CVI-WebServer
+Cert Hash(sha1): 56195db06f786ce07a5eb9f52e83b92531d522fb
+  Key Container = c331eac02d8b30f9c3b8d755edc095ac_f0a99c17-76d3-498a-97de-2992c06105fd
+  Simple container name: te-CVI-WebServer-d1955e87-3348-4fc3-b3ce-5e86db91ec46
+  Provider = Microsoft RSA SChannel Cryptographic Provider
+Private key is NOT exportable
+Encryption test passed
+CertUtil: -store command completed successfully.
 ```
 
 ---
@@ -150,17 +178,17 @@ Replace `<thumbprint>` with the thumbprint value (no spaces).
 Navigate to **certsrv.msc → CVI Issuing CA 1 → Issued Certificates**.
 
 **Does the certificate appear in the Issued Certificates node?**
-- [ ] Yes
+- [x] Yes
 
 **Record from the Issued Certificates node:**
 
 | Column | Value |
 |--------|-------|
-| Request ID | |
-| Requester Name | |
-| Certificate Template | |
-| Issued Common Name | |
-| Certificate Expiration Date | |
+| Request ID | 4 |
+| Requester Name | CORP\PKI-SRV01$ |
+| Certificate Template | CVI-WebServer |
+| Issued Common Name | PKI-SRV01.corp.cvilab.local |
+| Certificate Expiration Date | 4/25/2027 7:36 PM |
 
 ---
 
@@ -174,27 +202,49 @@ Describe the full certificate issuance workflow in your own words. Cover:
 4. Where the issued certificate was placed and why
 
 ```
-(your write-up here — aim for 1–2 paragraphs, plain language)
+Before a certificate can be issued, the template has to be published to the CA — it's
+not enough for it to exist in Active Directory. Once I published CVI-WebServer through
+certsrv.msc, the CA could see it and it was an option for enrollment. When I opened
+MMC and launched the Certificate Enrollment wizard, it contacted the CA through the Active
+Directory Enrollment Policy endpoint and pulled back a list of templates my computer
+account was permitted to request. CVI-WebServer showed up as available because the
+template permissions allow computer accounts to enroll. The wizard built a certificate
+request using the template's settings — key size, key usage, validity period — and
+submitted it to CVI Issuing CA 1.
+
+The CA evaluated the request by checking that the requester (PKI-SRV01$) had the
+Enroll permission on the template, that the request matched the template's requirements,
+and that no manager approval was required. Since all of that checked out, the CA signed
+and issued the certificate immediately. The certificate was placed back into the
+computer's Personal certificate store automatically, which is where Windows expects to
+find machine certificates used for things like TLS. I could then see the same certificate
+from two directions — in the MMC store on the client side and in the Issued Certificates
+node on the CA side — which confirmed the full round trip worked.
 ```
 
 **One thing about the issuance process that you did not expect or want to understand better:**
 
 ```
-(your observation here)
+I didn't expect the snap-in account type to matter so much. When I selected "My user
+account" in MMC, the CVI-WebServer template didn't show up at all — it only appeared
+after I switched to "Computer account." That made me realize template permissions are
+scoped specifically to the principal type (user vs. computer), not just to a group or
+individual. I want to understand better how to configure a template so it can be
+requested by both user and computer accounts if needed.
 ```
 
 ---
 
 ## Submission Checklist
 
-- [ ] Pre-lab verification completed
-- [ ] Part A: CVI-WebServer template published to CVI Issuing CA 1
-- [ ] Part A: Template visible in certsrv.msc Certificate Templates node — confirmed
-- [ ] Part B: Certificate requested via MMC — request submitted
-- [ ] Part B: Enrollment wizard observations documented
-- [ ] Part C: Certificate details recorded from MMC (General + Details tabs)
-- [ ] Part C: certutil -store My output pasted
-- [ ] Part C: Certificate confirmed in certsrv.msc Issued Certificates node
-- [ ] Part D: Issuance workflow write-up completed in own words
+- [x] Pre-lab verification completed
+- [x] Part A: CVI-WebServer template published to CVI Issuing CA 1
+- [x] Part A: Template visible in certsrv.msc Certificate Templates node — confirmed
+- [x] Part B: Certificate requested via MMC — request submitted
+- [x] Part B: Enrollment wizard observations documented
+- [x] Part C: Certificate details recorded from MMC (General + Details tabs)
+- [x] Part C: certutil -store My output pasted
+- [x] Part C: Certificate confirmed in certsrv.msc Issued Certificates node
+- [x] Part D: Issuance workflow write-up completed in own words
 - [ ] File saved as `lab-02-first-issuance.md`
 - [ ] File committed to portfolio repo under `labs/week-10/`
