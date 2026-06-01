@@ -404,8 +404,8 @@ legitimately requested.
 - [x] Part B: Subject Name source difference explained with reasoning
 - [x] Part B: Security question answered — specific risk identified for a combined-EKU certificate
 - [x] Reflection completed
-- [ ] File saved as `lab-03-profile-comparison.md`
-- [ ] All three Week 11 lab files committed together with a single meaningful commit message
+- [x] File saved as `lab-03-profile-comparison.md`
+- [x] All three Week 11 lab files committed together with a single meaningful commit message
 - [x] Request IDs for all three certificates recorded — needed for Week 12
-- [ ] All three Week 11 labs committed with a single meaningful commit message
+- [x] All three Week 11 labs committed with a single meaningful commit message
 - [x] Request IDs for all three certificates recorded (TLS from Week 10, Service Account, Code Signing) — needed for Week 12
